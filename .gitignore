@@ -1,0 +1,8 @@
+.direnv
+
+# Project specific marks
+nvim.shada
+
+# Hugo
+*/public
+*/resources/_gen
