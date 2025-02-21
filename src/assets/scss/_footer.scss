@@ -69,9 +69,12 @@
     @media (min-width: $min-desktop) {
       flex-grow: 0;
     }
+
     a {
       width: 100%;
       font-size: 1.5rem;
+      text-transform: none;
+
       @media (min-width: $min-desktop) {
         width: max-content;
         margin: 0;
