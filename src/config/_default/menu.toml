@@ -1,0 +1,16 @@
+[[main]]
+identifier = "resources"
+name = "Resources"
+url = "/resources/"
+
+[[main]]
+identifier = "birding-spots"
+name = "Birding Spots"
+url = "/resources/birding-spots"
+parent = "resources"
+
+[[main]]
+identifier = "philly-birds"
+name = "Philly Birds"
+url = "/resources/philly-birds"
+parent = "resources"

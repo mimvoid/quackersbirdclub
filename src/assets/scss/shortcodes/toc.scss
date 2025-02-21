@@ -1,0 +1,10 @@
+@use "../partials/vars" as *;
+
+.toc {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  @media (min-width: $min-desktop) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}

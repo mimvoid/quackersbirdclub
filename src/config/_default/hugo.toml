@@ -1,0 +1,23 @@
+theme = 'dot-org-hugo-theme'
+
+title = 'Quackers Bird Club at Penn'
+copyright = 'Quackers Bird Club at Penn © 2025'
+
+timeZone = 'America/New_York'
+languageCode = 'en-us'
+summaryLength = 12  # Defines the minimum amount of words to reddened in a summary
+
+
+[markup.goldmark.renderer]
+unsafe = true  # Allow markdown attributes
+
+[minify]
+minifyOutput = true
+
+
+# Enable do not track, no cookies on Video embeds
+[privacy.youtube]
+privacyEnhanced = true
+
+[privacy.vimeo]
+enableDNT = false

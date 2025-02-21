@@ -1,0 +1,22 @@
+// Inline icons
+p svg {
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
+
+svg.circle {
+  height: 2em;
+  width: 2em;
+  margin-right: 0.4em;
+  padding: 0.5em;
+
+  border-radius: 100vw;
+  background: var(--primary-400);
+  color: var(--white);
+}
+
+footer .circle {
+  border-radius: 100vw;
+  background: var(--white);
+  color: var(--black);
+}

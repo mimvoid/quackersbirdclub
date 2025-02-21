@@ -1,0 +1,85 @@
+@use "partials/vars" as *;
+
+header.with-bg {
+  position: relative;
+  max-width: 100%;
+
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+
+  padding: min(10vw, 4rem) 6rem;
+  margin: 1.5rem 0 5rem 0;
+  border-radius: 8px;
+
+  @media (min-width: $min-desktop) {
+    h1, p {
+      max-width: 75%;
+    }
+  }
+
+  @media (max-width: $mobile-max) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  h1, p {
+    position: relative;
+    color: var(--white);
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
+
+  // Color overlay
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: inherit;
+
+    background-color: var(--primary-800);
+    opacity: 0.75;
+  }
+}
+
+// Specific rules to page content.
+.content {
+  > * {
+    max-width: var(--content-width);
+  }
+
+  .full-width,
+  iframe {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  // Code block restriction.
+  div.highlight {
+    max-width: var(--content-width);
+  }
+
+  // Stops links pushing out container.
+  a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  // Fixes nested UL spacing - see TOC.
+  ul ul {
+    margin-top: 12px;
+  }
+}

@@ -1,0 +1,48 @@
+@use "partials/vars" as *;
+@use "partials/ul-reset";
+
+body {
+  overscroll-behavior: none; // fixes menu off bottom of screen.
+  height: auto;
+  max-width: 100%;
+  background-color: var(--white);
+
+  &.has-menu-active {
+    // Stops backround moving when menu open.
+    overflow: hidden;
+    height: 100%;
+  }
+}
+
+.container {
+  margin: auto;
+  width: 100%;
+  max-width: 85%;
+
+  @media (min-width: $desktop-width) {
+    max-width: var(--container-width);
+  }
+
+  @media (max-width: $mobile-max) {
+    max-width: 100%;
+  }
+}
+
+.wrap {
+  padding-left: 12px;
+  padding-right: 12px;
+
+  @media (min-width: 372px) {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}

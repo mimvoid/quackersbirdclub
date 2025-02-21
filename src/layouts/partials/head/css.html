@@ -1,0 +1,10 @@
+{{- $source := "scss/style.scss" }}
+{{- $target := "css/style.css" }}
+{{ $options := (dict "targetPath" $target "transpiler" "dartsass") }}
+{{ if eq hugo.Environment "production" }}
+    {{ $options = merge $options (dict "outputStyle" "compressed" "enableSourceMap" false) }}
+{{ else }}
+    {{ $options = merge $options (dict "outputStyle" "nested" "enableSourceMap" true) }}
+{{ end }}
+{{ $style := resources.Get $source | toCSS $options | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" media="all">

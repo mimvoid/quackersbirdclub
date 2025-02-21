@@ -1,0 +1,9 @@
+{{- $svg := .Get 0 -}}
+{{- $regex := "<svg (.*)?>(.*)</svg>" -}}
+{{- $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` $svg -}}
+
+{{- with .Get 1 -}}
+  {{- $replaceWith = printf `<svg class="%s %s" ${1}>${2}</svg>` $svg . -}}
+{{- end -}}
+
+{{- replaceRE $regex $replaceWith (printf "/assets/icons/%s.svg" $svg | readFile) | safeHTML -}}

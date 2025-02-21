@@ -1,0 +1,171 @@
+@use "partials/vars" as *;
+
+// General rules of typography that apply across the whole website.
+
+// Set body size.
+body {
+  font-size: max(18px, 1.15rem);
+  font-weight: 400;
+  color: var(--text-color);
+  font-family: var(--rounded-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.title {
+  margin-block-start: 70px;
+  margin-block-end: 50px;
+  font-size: 4rem;
+
+  @media (min-width: $min-desktop) {
+    font-size: 5rem;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-block-start: 100px;
+    margin-block-end: 80px;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  font-family: var(--condensed-font-family);
+  font-weight: 800;
+}
+
+h1, .h1 {
+  color: var(--primary-700);
+}
+
+h2, .h2,
+h3, .h3 {
+  color: var(--heading-color);
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: var(--rounded-font-family);
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+h1,
+.h1 {
+  line-height: 112.2%;
+  font-size: 3rem;
+  @media (min-width: $min-desktop) {
+    line-height: 115%;
+    font-size: 4rem;
+  }
+}
+
+h2,
+.h2 {
+  line-height: 120%;
+  font-size: 2.5rem;
+  margin-block-start: 50px;
+  margin-block-end: 30px;
+  @media (min-width: $min-desktop) {
+    line-height: 115%;
+    font-size: 2.75rem;
+  }
+}
+
+h3,
+.h3 {
+  line-height: 150%;
+  text-transform: none;
+  margin-block-start: 40px;
+  margin-block-end: 25px;
+  @media (min-width: $min-desktop) {
+    font-size: 2rem;
+  }
+}
+
+h4,
+.h4 {
+  font-size: 1.5rem;
+  line-height: 150%;
+  letter-spacing: 2.4px;
+  margin-block-start: 28px;
+  margin-block-end: 18px;
+  @media (min-width: $min-desktop) {
+    font-size: 1.25rem;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 1.25rem;
+  letter-spacing: 0.8px;
+  margin-block-start: 25px;
+  margin-block-end: 16px;
+  @media (min-width: $min-desktop) {
+    font-size: 1rem;
+  }
+}
+
+h6,
+.h6 {
+  font-size: 1rem;
+  letter-spacing: 0.8px;
+  margin-block-start: 20px;
+  margin-block-end: 14px;
+  @media (min-width: $min-desktop) {
+    font-size: 0.75rem;
+  }
+}
+
+p + p,
+ul + p,
+ol + p {
+  margin-top: 24px;
+}
+
+a {
+  color: var(--link-color);
+  transition: var(--transition);
+
+  &:hover {
+    color: var(--link-color-hover);
+  }
+}
+
+li {
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+blockquote {
+  margin-block-start: 30px;
+  margin-block-end: 30px;
+  border-left: 4px solid var(--primary-400);
+  font-size: 1rem;
+  padding-block-start: 4px;
+  padding-block-end: 4px;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-left: 20px;
+  @media (min-width: $desktop-width) {
+    margin-block-start: 50px;
+    margin-block-end: 50px;
+  }
+  @media (min-width: $min-desktop) {
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+    padding-left: 20px;
+  }
+  p {
+    font-style: italic;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+  }
+}
+
+.highlight pre {
+  padding: 20px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}">
+  {{- partial "head.html" . -}}
+  <body class="{{ urlize .Type }} page-{{ .Kind }}">
+    {{- partial "accessibility.html" . -}}
+    {{- partial "header.html" . -}}
+
+    <main id="content" class="wrap" {{ if .IsPage }}data-pagefind-body{{ end }}>
+      {{ if ne .Params.showHeader false }}
+        {{ if .Resources.Get "banner" }}<div class="header-wrapper">{{ end }}
+        <header
+          {{ with .Resources.Get "banner" }}
+            class="with-bg container wrap"
+            style="background-image: url({{ .RelPermalink | safeCSS }})"
+          {{ else }}
+            class="container"
+          {{ end }}
+        >
+          {{ if and (eq .Kind "page") (ne .Section "") }}
+          {{- partial "breadcrumb.html" . -}}
+          {{ end }}
+          {{- block "title" . }}<h1>{{ .Title }}</h1>{{- end }}
+        </header>
+        {{ if .Resources.Get "banner" }}</div>{{ end }}
+      {{ end }}
+      {{ if or (eq .Kind "section") (eq .Kind "home") }}
+      <div class="content container">
+      {{ else }}
+      <article class="content container">
+      {{ end }}
+      {{- block "main" . }}{{ .Content }}{{- end }}
+      {{ if or (eq .Kind "section") (eq .Kind "home") }}
+      </div>
+      {{ else }}
+      </article>
+      {{ end }}
+    </main>
+    {{- partial "footer.html" . -}}
+  </body>
+</html>

@@ -1,0 +1,45 @@
+@use "../partials/vars" as *;
+
+.columns {
+  display: grid;
+  row-gap: 1.5rem;
+  column-gap: 3%;
+  grid-template-columns: repeat(12, 1fr);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.columns-2 {
+  column-gap: 6%;
+
+  > * {
+    grid-column: span 12;
+    @media (min-width: 800px) {
+      grid-column: span 6;
+    }
+  }
+}
+
+.columns-3 {
+  > * {
+    grid-column: span 12;
+    @media (min-width: 600px) {
+      grid-column: span 6;
+    }
+    @media (min-width: $min-desktop) {
+      grid-column: span 4;
+    }
+  }
+}
+
+.columns-4 {
+  > * {
+    grid-column: span 12;
+    @media (min-width: 600px) {
+      grid-column: span 6;
+    }
+    @media (min-width: $min-desktop) {
+      grid-column: span 3;
+    }
+  }
+}

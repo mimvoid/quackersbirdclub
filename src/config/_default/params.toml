@@ -1,0 +1,37 @@
+logo_on_white = "/icons/QuackersLogo.svg"
+logo_on_black = "/icons/QuackersLogo.svg"
+sticky_header = true  # Makes the header sticky on tall screens
+show_search = false  # Enable search in header UI
+
+[main_cta]
+text = "Join Us"
+link = "/join-us/"
+
+[footer_cta]
+text = "Join Us"
+link = "/join-us/"
+
+
+[github]
+repo_url = "https://github.com/username/repo/blob/master"
+show_edit_link = false
+
+[social_links]
+telegram = 'https://t.me/+5wtWHPQWUflmOWY5'
+instagram = 'https://www.instagram.com/upennquackers'
+devstats = ''
+discord = ''
+facebook = ''
+flickr = ''
+github = ''
+landscape = ''
+linkedin = ''
+mastodon = ''
+pinterest = ''
+rss = ''
+slack = ''
+stackoverflow = ''
+threads = ''
+twitter = ''
+x = ''
+youtube = ''
