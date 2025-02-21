@@ -22,9 +22,9 @@ We host birding outings and the occasional craft session. No matter how often yo
 be happy to have you!
 {{< /column >}}
 {{< column >}}
-{{< icon "tabler--brand-telegram" "circle" >}} <a href="https://t.me/+5wtWHPQWUflmOWY5" title="Quackers Bird Club at Penn on Telegram">Telegram Group Chat</a>
+{{< icon "social-telegram" "circle" >}} <a href="https://t.me/+5wtWHPQWUflmOWY5" title="Quackers Bird Club at Penn on Telegram">Telegram Group Chat</a>
 
-{{< icon "tabler--brand-instagram" "circle" >}} <a href="https://www.instagram.com/upennquackers" title="Quackers Bird Club at Penn on Instagram">@upennquackers</a>
+{{< icon "social-instagram" "circle" >}} <a href="https://www.instagram.com/upennquackers" title="Quackers Bird Club at Penn on Instagram">@upennquackers</a>
 
 {{< icon "tabler--mail" "circle" >}} pennquackers [at] gmail [dot] com
 
