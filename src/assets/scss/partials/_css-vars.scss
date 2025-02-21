@@ -28,12 +28,12 @@
 
   --text-color: var(--black);
   --heading-color: var(--primary-400);
-  --link-color: var(--primary-600);
+  --link-color: var(--primary-700);
   --link-color-hover: var(--tertiary-400);
   --menu-link-color: var(--black);
   --menu-link-color-hover: var(--tertiary-400);
   --footer-link-color: var(--white);
-  --footer-link-color-hover: var(--primary-400);
+  --footer-link-color-hover: hsl(from var(--tertiary-400) h calc(s * 1.35) calc(l * 1.3));
   --gutter: 25px;
   --container-width: 1200px;
   --content-width: 895px;

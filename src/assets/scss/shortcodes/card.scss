@@ -28,7 +28,7 @@
 // A wrapper class to alternate cards between colors
 .alt-cards {
   .card:nth-child(2n+1) {
-    background: var(--primary-400);
+    background: var(--primary-500);
     color: var(--white);
 
     h2, h3, h4, h5, h6 {
@@ -38,10 +38,19 @@
     .button {
       background: var(--secondary-400);
       color: var(--black);
+
+      &:hover, &:active {
+        color: var(--tertiary-400);
+      }
     }
   }
 
   .card:nth-child(2n) {
     background: var(--secondary-400);
+
+    h2, .h2,
+    h3, .h3 {
+      color: var(--primary-500);
+    }
   }
 }
