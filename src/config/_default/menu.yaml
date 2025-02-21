@@ -1,0 +1,12 @@
+main:
+- identifier: "resources"
+  name: "Resources"
+  url: "/resources/"
+- identifier: "birding-spots"
+  name: "Birding Spots"
+  url: "/resources/birding-spots"
+  parent: "resources"
+- identifier: "philly-birds"
+  name: "Philly Birds"
+  url: "/resources/philly-birds"
+  parent: "resources"
