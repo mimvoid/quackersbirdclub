@@ -1,5 +1,6 @@
 @use "partials/utils" as u;
 @use "partials/vars" as *;
+@use "partials/animation";
 
 header.with-bg {
   position: relative;
@@ -13,8 +14,11 @@ header.with-bg {
   border-radius: 8px;
 
   @media (min-width: $desktop) {
-    h1, p {
-      max-width: 75%;
+    h1 {
+      max-width: 70%;
+    }
+    p {
+      max-width: 50%;
     }
   }
 
@@ -23,11 +27,20 @@ header.with-bg {
   }
 
   h1, p {
+    @extend .fade-in-down;
     position: relative;
     color: var(--white);
   }
+
+  // Underline certain words
+  h1 em {
+    font-style: normal;
+    text-decoration: 0.06em underline solid var(--primary-400);
+  }
+
   p {
     font-size: 1.25rem;
+    animation-delay: 0.1s;
   }
 
   // Color overlay

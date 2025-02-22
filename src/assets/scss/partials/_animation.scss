@@ -1,0 +1,28 @@
+// Keyframes
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-0.6rem);
+  }
+
+  75% {
+    transform: translateY(0.2rem); // overshoot
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Classes
+.fade-in-down {
+  animation: 0.55s ease-in-out fade-in-down;
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-down {
+    animation-duration: 0s;
+  }
+}

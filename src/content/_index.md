@@ -7,7 +7,7 @@ resources:
       src: home-banner.webp
 ---
 
-Birdwatching and naturalist club at the University of Pennsylvania
+Birding and naturalist club at the University of Pennsylvania
 
 <!--more-->
 <!-- Above is a divider between the summary (above) and content (below) -->
