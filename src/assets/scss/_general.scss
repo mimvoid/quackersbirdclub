@@ -1,16 +1,16 @@
+@use "partials/utils" as u;
 @use "partials/vars" as *;
 
 // A miscellaneous grouping of native html elements
 
 // Horizontal rule
 hr {
- opacity: 0.25;
- color: var(--black);
- margin-top: 1rem;
- margin-bottom: 1rem;
+  @include u.my(1rem);
+  color: var(--black);
+  opacity: 0.25;
 }
 
-// Responsive Images by default.
+// Responsive images by default
 img {
   margin: 0;
   max-width: 100%;
@@ -25,45 +25,45 @@ figure {
 }
 
 figcaption {
-  font-style: italic;
-  font-size: 14px;
+  font-size: 0.9rem;
   color: var(--gray-800);
 }
 
 // Tables
 table {
+  $radius: 4px;
+
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
   border: 1px var(--gray-400) solid;
+
   th {
     background-color: var(--gray-300);
     font-weight: 700;
   }
-  th:first-child,
-  td:first-child {
-    border-top-left-radius: 12px;
-  }
-  td,
-  th {
+
+  th, td {
     padding: 21px 35px;
     text-align: left;
     overflow: hidden;
-  }
-  th:last-child,
-  td:last-child {
-    border-top-right-radius: 12px;
-  }
-  tr td {
-    border-bottom: 1px var(--gray-400) solid;
-  }
-  td,
-  th {
+
     &:not(:last-child) {
       border-right: 1px var(--gray-400) solid;
     }
+
+    &:first-child {
+      border-top-left-radius: $radius;
+    }
+    &:last-child {
+      border-top-right-radius: 12px;
+    }
+  }
+
+  tr td {
+    border-bottom: 1px var(--gray-400) solid;
   }
 }
 
@@ -71,6 +71,7 @@ table {
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
+
   thead th:first-child,
   tbody td:first-child {
     min-width: 160px;
@@ -79,27 +80,19 @@ table {
 
 // iframes
 iframe {
-  border-top-width: 0;
-  border-right-width: 0;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-top-style: inset;
-  border-right-style: inset;
-  border-bottom-style: inset;
-  border-left-style: inset;
+  border: 0 inset;
 }
 
 .responsive-iframe-wrapper {
   position: relative;
-  padding-bottom: 66.66%; // 3:2 Aspect Ratio, 75% 4:3 Aspect Ratio, 56.25% 16:9 Aspect Ratio,
   height: 0;
+  @include u.my(3rem);
+  padding-bottom: 66.66%; // 3:2 Aspect Ratio, 75% 4:3 Aspect Ratio, 56.25% 16:9 Aspect Ratio,
   overflow: hidden;
   background-color: var(--gray-200);
-  margin-top: 30px;
-  margin-bottom: 30px;
+
   @media (min-width: $min-desktop) {
-    margin-top: 60px;
-    margin-bottom: 60px;
+    @include u.my(4rem);
   }
 }
 .responsive-iframe-wrapper iframe {

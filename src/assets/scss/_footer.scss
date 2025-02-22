@@ -1,21 +1,17 @@
 @use "partials/vars" as *;
+@use "partials/utils" as u;
 @use "partials/ul-reset";
 
 .footer {
-  // Space from content.
-  margin-top: 70px;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  margin-top: 5rem; // Space from content
+  @include u.py(4rem);
 
   background-color: var(--primary-800);
   color: var(--footer-link-color);
 
-  @media (min-width: $min-desktop) {
-    margin-top: 100px;
-  }
-  @media (min-width: $min-desktop) {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  @media (max-width: $mobile) {
+    margin-top: 4rem;
+    @include u.py(2rem);
   }
 
   hr {
@@ -35,7 +31,7 @@
   }
 
   &__menu-cta-wrapper {
-    @media (min-width: $min-desktop) {
+    @media (min-width: $desktop) {
       display: flex;
       align-items: flex-start;
       margin-bottom: 2rem;
@@ -43,30 +39,31 @@
   }
 
   &__menu {
-    display: none;
-    @media (min-width: $min-desktop) {
-      flex-shrink: 0;
-      flex-grow: 1;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(125px, 200px));
-      gap: 15px;
+    flex-shrink: 0;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 200px));
+    gap: 15px;
 
-      a {
-        font-size: 1rem;
-        font-weight: 400;
-        text-decoration: none;
-      }
-      .top-menu-item {
-        font-size: 1rem;
-        font-weight: 800;
-        margin-top: 0;
-        margin-bottom: 20px;
-      }
+    a {
+      font-size: 1rem;
+      font-weight: 400;
+      text-decoration: none;
+    }
+    .top-menu-item {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: $mobile) {
+      display: none;
     }
   }
 
   &__cta {
-    @media (min-width: $min-desktop) {
+    @media (min-width: $desktop) {
       flex-grow: 0;
     }
 
@@ -75,7 +72,7 @@
       font-size: 1.5rem;
       text-transform: none;
 
-      @media (min-width: $min-desktop) {
+      @media (min-width: $desktop) {
         width: max-content;
         margin: 0;
         margin-left: 20px;
@@ -94,9 +91,9 @@
   }
 
   .logo-link {
-    display: none;
-    @media (min-width: $min-desktop) {
-      display: block;
+    display: block;
+    @media (max-width: $mobile) {
+      display: none;
     }
   }
 
@@ -107,23 +104,21 @@
   }
 
   .social-links {
-    margin-top: 20px;
     display: flex;
+    @include u.flex-center;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    gap: 1rem;
+    margin-top: 1rem;
 
-    @media (min-width: $min-desktop) {
+    @media (min-width: $desktop) {
       margin-top: 0;
     }
 
     a {
       display: flex;
-      align-items: center;
-      align-content: center;
-      justify-content: center;
+      @include u.flex-center;
       padding: 10px;
+
       &:hover {
         opacity: 0.8;
       }
@@ -132,31 +127,34 @@
 
   .copyright {
     font-size: 0.9rem;
-    line-height: 150%;
     letter-spacing: 0.2px;
-    @media (min-width: $min-desktop) {
+
+    @media (min-width: $desktop) {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
     }
+
     a {
       font-weight: 800;
       text-decoration: none;
     }
+
     &__accessibility-git-wrapper {
-      @media (max-width: $mobile-max) {
+      @media (max-width: $mobile) {
         margin-top: 20px;
-        a {
-          & + a {
-            border-left: 1px solid var(--white);
-            padding-left: 10px;
-          }
+
+        a + a {
+          border-left: 1px solid var(--white);
+          padding-left: 10px;
         }
+
         a:first-of-type {
           margin-right: 10px;
         }
       }
-      @media (min-width: $min-desktop) {
+
+      @media (min-width: $desktop) {
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -164,6 +162,7 @@
         text-align: right;
       }
     }
+
     p {
       margin: 0;
     }

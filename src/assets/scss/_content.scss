@@ -1,3 +1,4 @@
+@use "partials/utils" as u;
 @use "partials/vars" as *;
 
 header.with-bg {
@@ -11,22 +12,20 @@ header.with-bg {
   margin: 1.5rem 0 5rem 0;
   border-radius: 8px;
 
-  @media (min-width: $min-desktop) {
+  @media (min-width: $desktop) {
     h1, p {
       max-width: 75%;
     }
   }
 
-  @media (max-width: $mobile-max) {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  @media (max-width: $mobile) {
+    @include u.px(1.5rem);
   }
 
   h1, p {
     position: relative;
     color: var(--white);
   }
-
   p {
     font-size: 1.25rem;
   }
@@ -34,21 +33,14 @@ header.with-bg {
   // Color overlay
   &::before {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    border-radius: inherit;
+    @include u.overlay;
 
     background-color: var(--primary-800);
     opacity: 0.75;
   }
 }
 
-// Specific rules to page content.
+// Specific rules to page content
 .content {
   > * {
     max-width: var(--content-width);
@@ -64,12 +56,12 @@ header.with-bg {
     max-width: 100%;
   }
 
-  // Code block restriction.
+  // Code block restriction
   div.highlight {
     max-width: var(--content-width);
   }
 
-  // Stops links pushing out container.
+  // Stops links pushing out container
   a {
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -78,8 +70,8 @@ header.with-bg {
     hyphens: auto;
   }
 
-  // Fixes nested UL spacing - see TOC.
+  // Fixes nested UL spacing - see TOC
   ul ul {
-    margin-top: 12px;
+    margin-top: 1rem;
   }
 }

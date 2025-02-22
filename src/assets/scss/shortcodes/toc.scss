@@ -1,10 +1,9 @@
-@use "../partials/vars" as *;
+@use "../partials/vars";
+@use "../partials/utils" as u;
 
 .toc {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  @media (min-width: $min-desktop) {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  @include u.my(1.5rem);
+  @media (min-width: vars.$desktop) {
+    @include u.my(2rem);
   }
 }

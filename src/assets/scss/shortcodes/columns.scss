@@ -1,12 +1,12 @@
-@use "../partials/vars" as *;
+@use "../partials/vars";
+@use "../partials/utils" as u;
 
 .columns {
   display: grid;
   row-gap: 1.5rem;
   column-gap: 3%;
   grid-template-columns: repeat(12, 1fr);
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  @include u.my(2rem);
 }
 
 .columns-2 {
@@ -20,26 +20,22 @@
   }
 }
 
-.columns-3 {
-  > * {
-    grid-column: span 12;
-    @media (min-width: 600px) {
-      grid-column: span 6;
-    }
-    @media (min-width: $min-desktop) {
-      grid-column: span 4;
-    }
+.columns-3 > * {
+  grid-column: span 12;
+  @media (min-width: 600px) {
+    grid-column: span 6;
+  }
+  @media (min-width: vars.$desktop) {
+    grid-column: span 4;
   }
 }
 
-.columns-4 {
-  > * {
-    grid-column: span 12;
-    @media (min-width: 600px) {
-      grid-column: span 6;
-    }
-    @media (min-width: $min-desktop) {
-      grid-column: span 3;
-    }
+.columns-4 > * {
+  grid-column: span 12;
+  @media (min-width: 600px) {
+    grid-column: span 6;
+  }
+  @media (min-width: vars.$desktop) {
+    grid-column: span 3;
   }
 }

@@ -1,13 +1,14 @@
-@use "../partials/vars" as *;
+@use "../partials/vars";
+@use "../partials/utils" as u;
 
 .lite-youtube-fallback {
   aspect-ratio: 16 / 9;
   /* matches YouTube player */
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  @include u.flex-center;
   gap: 1em;
+
   padding: 1em;
   background-color: var(--black);
   color: var(--white);
@@ -16,8 +17,8 @@
 
 /* right-facing triangle "Play" icon */
 .lite-youtube-fallback::before {
-  display: block;
   content: "";
+  display: block;
   border: solid transparent;
   border-width: 2em 0 2em 3em;
   border-left-color: red;
@@ -32,17 +33,15 @@
 }
 
 lite-youtube {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  @media (min-width: $min-desktop) {
-    margin-top: 60px;
-    margin-bottom: 60px;
+  @include u.my(2rem);
+  @media (min-width: vars.$desktop) {
+    @include u.my(4rem);
   }
 }
 
 lite-youtube + lite-youtube {
   margin-top: 0;
-  @media (min-width: $min-desktop) {
+  @media (min-width: vars.$desktop) {
     margin-top: 0;
   }
 }
