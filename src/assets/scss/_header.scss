@@ -9,6 +9,7 @@
 
   position: relative;
   overflow-x: clip;
+  transition: top 0.2s ease-in-out;
 
   &.sticky {
     position: sticky;
