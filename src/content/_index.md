@@ -35,28 +35,40 @@ be happy to have you!
 <div class="alt-cards">
 {{< cards >}}
 {{< card >}}
+{{< img
+    src="/Michelle-Lin_2024-08-30_3.webp"
+    alt="A young American Robin with its characteristic freckled plumage and orange belly (Michelle Lin 2024)"
+    style="--focus-x: 75%"
+>}}
+<div class="text">
+
 ## Birds {.h3}
 
-We're based in Philly. Come learn about the myriad of birds Philadelphia has to offer,
+Come learn about the myriad of birds Philadelphia has to offer,
 and their unique characteristics and behaviors!
 
 {{< button text="Learn" link="/resources/philly-birds" >}}
+</div>
 {{< /card >}}
 {{< card >}}
 ## Outings {.h3}
 
+<div class="text">
 We go to birding sites across Philadelphia, from the BioPond on campus, to the Woodlands, to
 John Heinz and more.
 
 {{< button text="Explore" link="/resources/birding-spots" >}}
+</div>
 {{< /card >}}
 {{< card >}}
 ## Community {.h3}
 
+<div class="text">
 Join a club that appreciates the birds around us! We'd love for you to come chat and connect
 with fellow bird lovers.
 
-{{< button text="Join Us" link="/join-us" >}}
+{{< button text="Connect" link="/join-us" >}}
+</div>
 {{< /card >}}
 {{< /cards >}}
 </div>
