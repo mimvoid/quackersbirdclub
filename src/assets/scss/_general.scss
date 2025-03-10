@@ -10,25 +10,6 @@ hr {
   opacity: 0.25;
 }
 
-// Responsive images by default
-img {
-  margin: 0;
-  max-width: 100%;
-  height: auto;
-}
-
-figure {
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-inline-start: 0;
-  margin-inline-end: 0;
-}
-
-figcaption {
-  font-size: 0.9rem;
-  color: var(--gray-800);
-}
-
 // Tables
 table {
   $radius: 4px;

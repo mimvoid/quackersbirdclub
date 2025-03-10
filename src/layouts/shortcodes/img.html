@@ -1,0 +1,54 @@
+{{ $src := .Get "src" }}
+{{ $width := .Get "width" | replaceRE "[^0-9]" "" }}
+{{ $height := .Get "height" | replaceRE "[^0-9]" "" }}
+{{ $class := .Get "class" }}
+{{ $style := .Get "style" }}
+{{ $caption := .Get "caption" }}
+{{ $loading := .Get "loading" | default "lazy" }}
+
+{{/* Extract the file name from the path */}}
+{{ $filenameWithExt := path.Base $src }}
+
+{{/* Remove the file extension */}}
+{{ $filename := strings.TrimSuffix (path.Ext $filenameWithExt) $filenameWithExt }}
+
+{{/* Convert hyphens and underscores to spaces */}}
+{{ $name := $filename | replaceRE "[-_]" " " }}
+
+{{/* Optionally capitalize the first letter (if desired) */}}
+{{ $nameCapitalized := humanize $name }}
+
+{{/* Check for alt, and default to $nameCapitalized if not provided */}}
+{{ $altVal := .Get "alt" }}
+{{ $safeAltVal := $altVal | safeHTMLAttr }}
+
+{{ $alt := "" }} {{/* Declare the variable first */}}
+
+{{ if $safeAltVal }}
+    {{ $alt = $safeAltVal }}
+{{ else }}
+    {{ $alt = $nameCapitalized | safeHTMLAttr }}
+{{ end }}
+
+{{ $asset := .Page.Resources.Get $src }}
+
+{{ if $src }}
+
+{{ if $caption}}
+  <figure>
+  {{ end }}
+  <img
+    src="{{ $src }}"
+    width="{{ with $width }}{{ . }}{{ else }}{{ $asset.Width }}{{ end }}"
+    height="{{ with $height }}{{ . }}{{ else }}{{ $asset.Height }}{{ end }}"
+    alt="{{ $alt | safeHTMLAttr }}"
+    loading="{{ $loading }}"
+    {{ with $class }}class="{{ . }}"{{ end -}}
+    {{ with $style }} style="{{ safeCSS . }}"{{ end -}}
+    >
+  {{ with $caption}}
+    <figcaption>{{ markdownify . }}</figcaption>
+  </figure>
+{{ end }}
+
+{{ end }}
