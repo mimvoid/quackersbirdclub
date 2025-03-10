@@ -23,6 +23,26 @@
   .button {
     @include u.my(0);
   }
+
+  img {
+    height: 16rem;
+  }
+
+  p:first-child:has(img) {
+    margin-top: 0;
+  }
+
+  &:has(img) {
+    padding: 0 0 2.5em 0;
+
+    .text {
+      @include u.px(1.5em);
+    }
+
+    p {
+      font-size: 1.05rem;
+    }
+  }
 }
 
 // A wrapper class to alternate cards between colors
