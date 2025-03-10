@@ -4,8 +4,13 @@ h2 svg {
 }
 
 p svg {
-  vertical-align: middle;
+  vertical-align: text-top;
   margin-right: 0.2em;
+  color: var(--primary-700);
+
+  &.circle {
+    vertical-align: middle;
+  }
 }
 
 svg.circle {
