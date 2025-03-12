@@ -6,6 +6,8 @@ date: 2025-02-20T11:53:28-05:00
 
 Philadelphia has many great areas for birding, including some close to Penn!
 
+<section>
+
 ## Nearby
 
 Within 15 minutes of the Penn campus by SEPTA.
@@ -50,6 +52,9 @@ open fields.
 Its resident honeybees are active during the warmer seasons. Mallards, geese, and swallows
 may be found by the water, and woodpeckers, song sparrows, ravens, and crows may be found above land.
 
+</section>
+<section>
+
 ## Within Philadelphia
 
 ### John Heinz National Wildlife Refuge at Tinicum
@@ -86,6 +91,9 @@ you guessed it, birding.
 
 While it may be a long trip from campus, FOW features many videos of the Wissahickon on their website.
 
+</section>
+<section>
+
 ## Honorable Mentions
 
 ### Frankford Transportation Center
@@ -96,3 +104,5 @@ While it may be a long trip from campus, FOW features many videos of the Wissahi
 
 While not necessarily a natural or scenic spot, Frankford Terminal hosts a huge pigeon colony.
 They can often be seen flying together in circles or performing displays for their mates.
+
+</section>
