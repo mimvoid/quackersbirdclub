@@ -19,7 +19,7 @@
           {{ if and (eq .Kind "page") (ne .Section "") }}
           {{- partial "breadcrumb.html" . -}}
           {{ end }}
-          {{- block "title" . }}<h1>{{ .Title }}</h1>{{- end }}
+          {{- block "title" . }}<h1 class="title">{{ .Title }}</h1>{{- end }}
           {{- if .Resources.Get "banner" -}}<p class="subtitle">{{ .Summary }}</p>{{- end }}
         </header>
         {{ if .Resources.Get "banner" }}</div>{{ end }}
