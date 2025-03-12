@@ -1,3 +1,19 @@
+{{ if .Page.IsHome }}
+<style>
+  header.with-bg h1,
+  header.with-bg p {
+    animation: 0.55s ease-in-out fade-in-down;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    header.with-bg h1,
+    header.with-bg p {
+      animation-duration: 0s;
+    }
+  }
+</style>
+{{ end }}
+
 {{ $opts := dict "minify" true }}
 
 {{ with resources.Get "ts/navScroll.ts" | js.Build $opts | fingerprint }}

@@ -6,6 +6,7 @@ header.with-bg {
   position: relative;
   max-width: 100%;
 
+  background-size: cover;
   background-attachment: scroll;
   background-repeat: no-repeat;
 
@@ -26,10 +27,19 @@ header.with-bg {
     @include u.px(1.5rem);
   }
 
-  h1, p {
-    @extend .fade-in-down;
+  h1,
+  p,
+  .breadcrumbs {
     position: relative;
     color: var(--white);
+  }
+
+  .breadcrumb a {
+    @extend .breadcrumbs;
+
+    &:hover {
+      color: var(--gray-600);
+    }
   }
 
   // Underline certain words
