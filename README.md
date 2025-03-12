@@ -1,5 +1,8 @@
 # Quackers Bird Club at Penn Website
 
+![Hugo Badge](https://img.shields.io/badge/Hugo-DF4078?logo=hugo&logoColor=fff&style=flat)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/53f7e8ee-0a29-4d33-ba6e-bec5a1a44456/deploy-status)](https://app.netlify.com/sites/quackersbirdclub/deploys)
+
 ## Technologies
 
 - Website builder: [Hugo](https://gohugo.io)
