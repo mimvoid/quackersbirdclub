@@ -51,9 +51,16 @@ and their unique characteristics and behaviors!
 </div>
 {{< /card >}}
 {{< card >}}
-## Outings {.h3}
+
+{{< img
+    src="Michelle-Lin_2025-03-11_6.webp"
+    alt="A tufted titmouse in the side looks back at the camera (Michelle Lin 2025)"
+>}}
 
 <div class="text">
+
+## Outings {.h3}
+
 We go to birding sites across Philadelphia, from the BioPond on campus, to the Woodlands, to
 John Heinz and more.
 
@@ -61,9 +68,17 @@ John Heinz and more.
 </div>
 {{< /card >}}
 {{< card >}}
-## Community {.h3}
+
+{{< img
+    src="Michelle-Lin_2025-02-25_1.webp"
+    alt="A flock of house sparrows gathered along a bench (Michelle Lin 2025)"
+    style="--focus-x: 38%"
+>}}
 
 <div class="text">
+
+## Community {.h3}
+
 Join a club that appreciates the birds around us! We'd love for you to come chat and connect
 with fellow bird lovers.
 
