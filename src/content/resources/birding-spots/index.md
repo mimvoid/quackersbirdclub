@@ -2,6 +2,9 @@
 title: Birding Spots
 description: Listing of good places to go birding in Philadelphia
 date: 2025-02-20T11:53:28-05:00
+resources:
+    - name: banner
+      src: Michelle-Lin_2025-03-11_3.webp
 ---
 
 Philadelphia has many great areas for birding, including some close to Penn!
@@ -13,6 +16,12 @@ Philadelphia has many great areas for birding, including some close to Penn!
 Within 15 minutes of the Penn campus by SEPTA.
 
 ### BioPond
+
+{{< img
+    src="Michelle-Lin_2025-03-11_1.webp"
+    class="float-right"
+    style="width: clamp(12em, 30em, 100%);"
+>}}
 
 {{< icon "tabler--external-link" >}} [Website](https://kaskeypark.bio.upenn.edu)
 
