@@ -2,9 +2,12 @@
 title: Philly Birds
 description: Listing of birds found in Philadelphia
 date: 2025-02-20T11:53:36-05:00
+resources:
+    - name: banner
+      src: Michelle-Lin_2025-02-01_11-45.webp
 ---
 
-Philadelphia hosts many bird species to look out for.
+Philadelphia hosts many bird species to look out for. Take a look and try to recognize them!
 
 <!--more-->
 
