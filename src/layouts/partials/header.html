@@ -6,11 +6,11 @@
   <div class="container wrap">
 
     {{ with .Site.Params.logo_on_white }}
-    <a class="logo-link" href="{{ "/" | absLangURL }}">
-      <img class="logo" width="150" height="40" src="{{ . | absURL }}" alt="{{ $.Site.Title | safeHTMLAttr }}">
+    <a class="logo-link" href="/">
+      <img class="logo" width="150" height="40" src="{{ . }}" alt="{{ $.Site.Title | safeHTMLAttr }}">
     </a>
     {{ else }}
-    <a class="site-title-link" href="{{ "/" | absLangURL }}">
+    <a class="site-title-link" href="/">
       <span class="site-title">{{ $.Site.Title }}</span>
     </a>
     {{ end }}

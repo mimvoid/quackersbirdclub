@@ -1,7 +1,7 @@
 ## Production configuration
 
 # The base URL of your site (required). This will be prepended to all relative URLs.
-baseURL = ''
+baseURL = 'https://quackersbirdclub.netlify.app/'
 googleAnalytics = ''
 enableRobotsTXT = true
 
