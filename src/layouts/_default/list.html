@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ if .Resources.Get "banner" }}
+  {{ .ContentWithoutSummary }}
+{{ else }}
+  {{ .Content }}
+{{ end }}
+  {{ range .Pages }}
+    <article>
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p>{{ .Summary | plainify }}</p>
+    </article>
+  {{ end }}
+{{ end }}
