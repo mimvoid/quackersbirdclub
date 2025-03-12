@@ -58,13 +58,6 @@ However, they are what may be seen during our outings.
 {{< /card >}}
 {{< card >}}
 
-### Dark-eyed junco
-
-*Junco hyemalis*
-
-{{< /card >}}
-{{< card >}}
-
 ### Eastern phoebe
 
 *Sayornis phoebe*
@@ -178,6 +171,13 @@ However, they are what may be seen during our outings.
 ### Chipping sparrow
 
 *Spizella passerina*
+
+{{< /card >}}
+{{< card >}}
+
+### Dark-eyed junco
+
+*Junco hyemalis*
 
 {{< /card >}}
 {{< /cards >}}
