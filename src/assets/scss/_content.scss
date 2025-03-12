@@ -96,3 +96,7 @@ header.with-bg {
     margin-top: 1rem;
   }
 }
+
+section {
+  @include u.my(2.5rem);
+}
