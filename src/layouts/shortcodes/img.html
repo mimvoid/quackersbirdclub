@@ -34,8 +34,8 @@
 
 {{ if $src }}
 
-{{ if $caption}}
-  <figure>
+{{ if $caption }}
+  <figure{{ with $class }} class="{{ . }}"{{ end -}}{{ with $style }} style="{{ safeCSS . }}"{{ end -}}>
   {{ end }}
   <img
     src="{{ $src }}"
@@ -43,12 +43,14 @@
     height="{{ with $height }}{{ . }}{{ else }}{{ $asset.Height }}{{ end }}"
     alt="{{ $alt | safeHTMLAttr }}"
     loading="{{ $loading }}"
-    {{ with $class }}class="{{ . }}"{{ end -}}
-    {{ with $style }} style="{{ safeCSS . }}"{{ end -}}
+    {{- if not $caption }}
+      {{ with $class }}class="{{ . }}"{{ end -}}
+      {{ with $style }}style="{{ safeCSS . }}"{{ end -}}
+    {{ end -}}
     >
-  {{ with $caption}}
+  {{- with $caption -}}
     <figcaption>{{ markdownify . }}</figcaption>
   </figure>
-{{ end }}
+{{- end -}}
 
 {{ end }}

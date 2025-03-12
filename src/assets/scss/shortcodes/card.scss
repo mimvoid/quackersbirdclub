@@ -30,6 +30,16 @@
 
   p:first-child:has(img) {
     margin-top: 0;
+
+    &:has(+ figcaption) {
+      margin-bottom: 0.1em;
+    }
+  }
+
+  figcaption {
+    margin-right: 1em;
+    text-align: right;
+    font-size: 0.7rem;
   }
 
   &:has(img) {
