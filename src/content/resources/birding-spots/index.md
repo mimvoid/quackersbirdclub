@@ -21,6 +21,8 @@ Within 15 minutes of the Penn campus by SEPTA.
     src="Michelle-Lin_2025-03-11_1.webp"
     class="float-right"
     style="width: clamp(12em, 30em, 100%);"
+    alt="A group of turtles bask on a rock island in the middle of the BioPond"
+    caption="Turtles bask in the middle of the BioPond on a warm afternoon<br>(Photo by Michelle Lin)"
 >}}
 
 {{< icon "tabler--external-link" >}} [Website](https://kaskeypark.bio.upenn.edu)
@@ -73,7 +75,8 @@ may be found by the water, and woodpeckers, song sparrows, ravens, and crows may
 
 {{< img
     src="Michelle-Lin_2024-04-19.webp"
-    alt="A goose standing in the lake at John Heinz (Michelle Lin 2024)"
+    alt="A goose standing in Tinicum Marsh at John Heinz, a large body of water with islands of vegetation (Michelle Lin 2024)"
+    caption="A goose stands guard in Tinicum Marsh at John Heinz<br>(Photo by Michelle Lin)"
 >}}
 
 {{< /column >}}
@@ -83,9 +86,10 @@ may be found by the water, and woodpeckers, song sparrows, ravens, and crows may
 
 {{< icon "tabler--map-pin" >}} 8601 Lindbergh Boulevard
 
-John Heinz is a protected habitat with immense biodiversity. It contains woodlands, marshes, and a lake
-where herons, swallows, geese, and swans can be found. It is also home for blackbirds, warblers, and
-much more. Additionally, deer and a variety of plant and fungal growth can be found along its trails.
+John Heinz is a protected habitat with immense biodiversity. It contains woodlands, a creek, and a
+freshwater tidal marsh where herons, swallows, geese, and swans can be found. It is also home for
+blackbirds, warblers, and much more. Additionally, deer and a variety of plant and fungal growth
+can be found along its trails.
 
 {{< /column >}}
 {{< /columns >}}
