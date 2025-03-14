@@ -6,6 +6,11 @@
 {{ $caption := .Get "caption" }}
 {{ $loading := .Get "loading" | default "lazy" }}
 
+{{ $altAsTitle := .Get "altAsTitle" }}
+{{ with $altAsTitle }}
+  {{ $altAsTitle = partial "utils/parse_bool" . }}
+{{ end}}
+
 {{/* Extract the file name from the path */}}
 {{ $filenameWithExt := path.Base $src }}
 
@@ -41,7 +46,7 @@
     src="{{ $src }}"
     width="{{ with $width }}{{ . }}{{ else }}{{ $asset.Width }}{{ end }}"
     height="{{ with $height }}{{ . }}{{ else }}{{ $asset.Height }}{{ end }}"
-    alt="{{ $alt | safeHTMLAttr }}"
+    alt="{{ $alt | safeHTMLAttr }}"{{ if $altAsTitle }} title="{{ $alt | safeHTMLAttr }}"{{ end }}
     loading="{{ $loading }}"
     {{- if not $caption }}
       {{ with $class }}class="{{ . }}"{{ end -}}
