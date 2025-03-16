@@ -347,9 +347,21 @@ be the distinguishing features of the bird to help with identification.
 {{< cards >}}
 {{< card >}}
 
+{{< img
+    src="Michelle-Lin_2025-03-14.webp"
+    alt="A feral pigeon with a typical blue gray body, iridescent neck, and red eyes and legs. This one has a t-check wing pattern, but feral pigeons can vary wildly in patterns and colors."
+    altAsTitle=true
+    caption="Photo by Michelle Lin"
+    style="--focus-x: 30%"
+>}}
+
+<div class="text">
+
 ### Feral pigeon
 
 *Columba livia domestica*
+
+</div>
 
 {{< /cards >}}
 {{< card >}}
