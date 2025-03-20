@@ -32,13 +32,9 @@ be the distinguishing features of the bird to help with identification.
     style="--focus-x: 40%"
 >}}
 
-<div class="text">
-
 ### European starling
 
 *Sturnus vulgaris*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -51,13 +47,9 @@ be the distinguishing features of the bird to help with identification.
     caption="Photo by Victoria Sindlinger"
 >}}
 
-<div class="text">
-
 ### American robin
 
 *Turdus migratorius*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -118,13 +110,9 @@ be the distinguishing features of the bird to help with identification.
     caption="Photo by Michelle Lin"
 >}}
 
-<div class="text">
-
 ### Tufted titmouse
 
 *Baeolophus bicolor*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -143,13 +131,9 @@ be the distinguishing features of the bird to help with identification.
     caption="Photo by Michelle Lin"
 >}}
 
-<div class="text">
-
 ### White-breasted nuthatch
 
 *Sitta carolinensis*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -162,13 +146,9 @@ be the distinguishing features of the bird to help with identification.
     caption="Photo by Victoria Sindlinger"
 >}}
 
-<div class="text">
-
 ### Red-breasted nuthatch
 
 *Sitta canadensis*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -207,13 +187,9 @@ be the distinguishing features of the bird to help with identification.
     style="--focus-x: 55%"
 >}}
 
-<div class="text">
-
 ### House sparrow
 
 *Passer domesticus*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -226,13 +202,9 @@ be the distinguishing features of the bird to help with identification.
     style="--focus-x: 60%"
 >}}
 
-<div class="text">
-
 ### White-throated sparrow
 
 *Zonotrichia albicollis*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -265,13 +237,9 @@ be the distinguishing features of the bird to help with identification.
     caption="Photo by Michelle Lin"
 >}}
 
-<div class="text">
-
 ### Chipping sparrow
 
 *Spizella passerina*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -355,13 +323,9 @@ be the distinguishing features of the bird to help with identification.
     style="--focus-x: 30%"
 >}}
 
-<div class="text">
-
 ### Feral pigeon
 
 *Columba livia domestica*
-
-</div>
 
 {{< /cards >}}
 {{< card >}}
@@ -419,13 +383,9 @@ be the distinguishing features of the bird to help with identification.
     style="--focus-x: 40%"
 >}}
 
-<div class="text">
-
 ### Yellow-bellied sapsucker
 
 *Sphyrapicus varius*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -469,13 +429,9 @@ be the distinguishing features of the bird to help with identification.
     style="--focus-x: 70%"
 >}}
 
-<div class="text">
-
 ### Mallard
 
 *Anas platyrhynchos*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -575,13 +531,9 @@ be the distinguishing features of the bird to help with identification.
     caption="Photo by Michelle Lin"
 >}}
 
-<div class="text">
-
 ### Red-tailed hawk
 
 *Buteo jamaicensis*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
@@ -601,13 +553,9 @@ be the distinguishing features of the bird to help with identification.
     style="--focus-x: 0%"
 >}}
 
-<div class="text">
-
 ### Cooper's hawk
 
 *Astur cooperii*
-
-</div>
 
 {{< /card >}}
 {{< card >}}
