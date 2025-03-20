@@ -14,7 +14,7 @@
 
   padding: $pad-y $pad-x;
   border-radius: 4px;
-  background: var(--white);
+  background-color: var(--white);
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
 
   &:has(img) p:not(:has(img)) {
@@ -58,7 +58,7 @@
 // A wrapper class to alternate cards between colors
 .alt-cards {
   .card:nth-child(2n+1) {
-    background: var(--primary-500);
+    background-color: var(--primary-500);
     color: var(--white);
 
     h2, h3, h4, h5, h6 {
@@ -66,7 +66,7 @@
     }
 
     .button {
-      background: var(--secondary-400);
+      background-color: var(--secondary-400);
       color: var(--black);
 
       &:hover, &:active {
@@ -76,7 +76,7 @@
   }
 
   .card:nth-child(2n) {
-    background: var(--secondary-400);
+    background-color: var(--secondary-400);
 
     h2, .h2,
     h3, .h3 {
