@@ -1,11 +1,9 @@
-@use "../partials/utils" as u;
-
 .cards {
   display: grid;
   row-gap: 2rem;
   column-gap: 3%;
   grid-template-columns: repeat(12, 1fr);
-  @include u.my(2.5rem);
+  margin-block: 2.5rem;
 }
 
 .card {
@@ -32,12 +30,11 @@
 
   h2,
   h3 {
-    margin-block-start: 0;
-    margin-block-end: 1.5rem;
+    margin-block: 0 1.5rem;
   }
 
   .button {
-    @include u.my(0);
+    margin-block: 0;
   }
 
   p:has(img) {

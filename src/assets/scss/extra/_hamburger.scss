@@ -26,9 +26,7 @@ $hamburger-responsive-hide: $min-desktop;
 .hamburger {
   padding: $hamburger-padding-y $hamburger-padding-x;
   cursor: pointer;
-  transition-property: opacity;
-  transition-duration: 0.15s;
-  transition-timing-function: linear;
+  transition: opacity 0.15s linear;
   font: inherit;
   color: inherit;
   text-transform: none;

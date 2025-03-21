@@ -1,32 +1,19 @@
 @use "partials/vars" as *;
-@use "partials/utils" as u;
 @use "partials/ul-reset";
 
-html {
-  scroll-behavior: smooth;
-
-  @media (prefers-reduced-motion: reduce) {
-    scroll-behavior: auto;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 body {
-  height: auto;
-  max-width: 100%;
   background-color: var(--white);
-
   overscroll-behavior: none; // fixes menu off bottom of screen
-
-  &.has-menu-active {
-    // Stops background moving when menu is open
-    overflow: hidden;
-    height: 100%;
-  }
 }
 
 .container {
   margin: auto;
-  width: 100%;
   max-width: 85%;
 
   @media (min-width: $desktop-width) {
@@ -39,14 +26,14 @@ body {
 }
 
 .wrap {
-  @include u.px(1rem);
+  padding-inline: 1rem;
 
   @media (min-width: 372px) {
-    @include u.px(var(--gutter));
+    padding-inline: var(--gutter);
   }
 
   @media (min-width: $desktop-width) {
-    @include u.px(0);
+    padding-inline: 0;
   }
 }
 

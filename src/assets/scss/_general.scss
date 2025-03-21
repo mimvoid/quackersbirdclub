@@ -5,7 +5,7 @@
 
 // Horizontal rule
 hr {
-  @include u.my(1rem);
+  margin-block: 1rem;
   color: var(--black);
   opacity: 0.25;
 }
@@ -17,8 +17,7 @@ table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border-top-left-radius: $radius;
-  border-top-right-radius: $radius;
+  border-radius: $radius $radius 0 0;
   border: 1px var(--gray-400) solid;
 
   th {
@@ -61,25 +60,26 @@ table {
 
 // iframes
 iframe {
-  border: 0 inset;
+  border: 0;
 }
 
 .responsive-iframe-wrapper {
   position: relative;
   height: 0;
-  @include u.my(3rem);
+  margin-block: 3rem;
   padding-bottom: 66.66%; // 3:2 Aspect Ratio, 75% 4:3 Aspect Ratio, 56.25% 16:9 Aspect Ratio,
   overflow: hidden;
   background-color: var(--gray-200);
 
   @media (min-width: $min-desktop) {
-    @include u.my(4rem);
+    margin-block: 4rem;
   }
-}
-.responsive-iframe-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }

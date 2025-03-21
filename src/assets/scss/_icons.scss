@@ -13,19 +13,21 @@ p svg {
   }
 }
 
+.circle {
+  border-radius: 100vw; // a large number
+}
+
 svg.circle {
   height: 2em;
   width: 2em;
   margin-right: 0.4em;
   padding: 0.5em;
 
-  border-radius: 100vw;
   background-color: var(--primary-400);
   color: var(--white);
 }
 
 footer .circle {
-  border-radius: 100vw;
   background-color: var(--white);
   color: var(--black);
 }

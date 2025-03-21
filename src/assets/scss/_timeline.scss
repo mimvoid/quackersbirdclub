@@ -4,8 +4,8 @@
   margin-left: 0.5em;
   list-style-type: none;
 
-  li.card {
-    @include u.px(2.25em);
+  .card {
+    padding-inline: 2.25em;
     position: relative;
     $pseudo-top: 4em; // Distance from the top to place the pseudo elements
 

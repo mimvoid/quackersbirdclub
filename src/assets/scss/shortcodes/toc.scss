@@ -1,9 +1,9 @@
 @use "../partials/vars";
-@use "../partials/utils" as u;
 
 .toc {
-  @include u.my(1.5rem);
+  margin-block: 1.5rem;
+
   @media (min-width: vars.$desktop) {
-    @include u.my(2rem);
+    margin-block: 2rem;
   }
 }

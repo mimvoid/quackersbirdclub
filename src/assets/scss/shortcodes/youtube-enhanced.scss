@@ -13,35 +13,34 @@
   background-color: var(--black);
   color: var(--white);
   text-decoration: none;
-}
 
-/* right-facing triangle "Play" icon */
-.lite-youtube-fallback::before {
-  content: "";
-  display: block;
-  border: solid transparent;
-  border-width: 2em 0 2em 3em;
-  border-left-color: red;
-}
 
-.lite-youtube-fallback:hover::before {
-  border-left-color: var(--white);
-}
+  /* right-facing triangle "Play" icon */
+  &::before {
+    content: "";
+    display: block;
+    border: solid transparent;
+    border-width: 2em 0 2em 3em;
+    border-left-color: red;
+  }
 
-.lite-youtube-fallback:focus {
-  outline: 2px solid red;
-}
+  &:hover::before {
+    border-left-color: var(--white);
+  }
 
-lite-youtube {
-  @include u.my(2rem);
-  @media (min-width: vars.$desktop) {
-    @include u.my(4rem);
+  &:focus {
+    outline: 2px solid red;
   }
 }
 
-lite-youtube + lite-youtube {
-  margin-top: 0;
+.lite-youtube {
+  margin-block: 2rem;
+
   @media (min-width: vars.$desktop) {
-    margin-top: 0;
+    margin-block: 4rem;
+  }
+
+  + .lite-youtube {
+    margin-block-start: 0;
   }
 }

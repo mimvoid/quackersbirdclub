@@ -11,7 +11,7 @@ header.with-bg {
   background-repeat: no-repeat;
 
   padding: min(10vw, 3.5rem) 6rem;
-  margin: 1.5rem 0 5rem 0;
+  margin: 1.5rem 0 5rem;
   border-radius: 8px;
 
   @media (min-width: $desktop) {
@@ -24,7 +24,7 @@ header.with-bg {
   }
 
   @media (max-width: $mobile) {
-    @include u.px(1.5rem);
+    padding-inline: 1.5rem;
   }
 
   h1,
@@ -42,17 +42,17 @@ header.with-bg {
     }
   }
 
-  // Underline certain words
-  h1 em {
-    font-style: normal;
-    text-decoration: 0.06em underline solid var(--primary-400);
-  }
-
   h1 {
     font-size: 5.5rem;
 
     @media (max-width: $mobile) {
       font-size: 4rem;
+    }
+
+    // Underline certain words
+    em {
+      font-style: normal;
+      text-decoration: 0.06em underline solid var(--primary-400);
     }
   }
 
@@ -109,5 +109,5 @@ header.with-bg {
 }
 
 section {
-  @include u.my(2.5rem);
+  margin-block: 2.5rem;
 }

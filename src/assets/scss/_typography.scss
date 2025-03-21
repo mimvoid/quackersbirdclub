@@ -4,17 +4,16 @@
 
 // Set body size
 body {
+  font-family: var(--rounded-font-family);
   font-size: max(18px, 1.15rem);
   font-weight: 400;
   color: var(--text-color);
-  font-family: var(--rounded-font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .title {
-  margin-block-start: 4.5rem;
-  margin-block-end: 3.5rem;
+  margin-block: 4.5rem 3.5rem;
   font-size: 4rem;
 
   @media (min-width: $desktop) {
@@ -56,8 +55,7 @@ h1,
 
 h2,
 .h2 {
-  margin-block-start: 50px;
-  margin-block-end: 30px;
+  margin-block: 50px 30px;
 
   font-size: 2.75rem;
   line-height: 115%;
@@ -70,12 +68,11 @@ h2,
 
 h3,
 .h3 {
-  margin-block-start: 40px;
-  margin-block-end: 25px;
+  margin-block: 40px 25px;
 
   font-size: 2rem;
-  text-transform: none;
   line-height: 150%;
+  text-transform: none;
 
   @media (max-width: $mobile) {
     font-size: 1.5rem;
@@ -84,8 +81,7 @@ h3,
 
 h4,
 .h4 {
-  margin-block-start: 28px;
-  margin-block-end: 18px;
+  margin-block: 28px 18px;
 
   font-size: 1.5rem;
   line-height: 150%;
@@ -98,8 +94,7 @@ h4,
 
 h5,
 .h5 {
-  margin-block-start: 25px;
-  margin-block-end: 16px;
+  margin-block: 25px 16px;
 
   font-size: 1.25rem;
   letter-spacing: 0.8px;
@@ -111,8 +106,7 @@ h5,
 
 h6,
 .h6 {
-  margin-block-start: 20px;
-  margin-block-end: 14px;
+  margin-block: 20px 14px;
 
   font-size: 1rem;
   letter-spacing: 0.8px;
@@ -146,33 +140,21 @@ li {
 
 blockquote {
   border-left: 4px solid var(--primary-400);
-
-  margin-block-start: 30px;
-  margin-block-end: 30px;
-  margin-inline-start: 0;
-  margin-inline-end: 0;
-
-  padding-block-start: 4px;
-  padding-block-end: 4px;
-  padding-left: 20px;
+  padding: 4px 4px 4px 20px;
 
   font-size: 1rem;
 
   @media (min-width: $desktop-width) {
-    margin-block-start: 50px;
-    margin-block-end: 50px;
+    margin: 50px 0;
   }
 
   @media (min-width: $min-desktop) {
-    margin-inline-start: 20px;
-    margin-inline-end: 20px;
-    padding-left: 20px;
+    margin: 0 20px;
   }
 
   p {
+    margin-block: 10px;
     font-style: italic;
-    margin-block-start: 10px;
-    margin-block-end: 10px;
   }
 }
 

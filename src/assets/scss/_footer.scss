@@ -4,14 +4,14 @@
 
 .footer {
   margin-top: 5rem; // Space from content
-  @include u.py(4rem);
+  padding-block: 4rem;
 
   background-color: var(--primary-800);
   color: var(--footer-link-color);
 
   @media (max-width: $mobile) {
     margin-top: 4rem;
-    @include u.py(2rem);
+    padding-block: 2rem;
   }
 
   hr {
@@ -53,8 +53,7 @@
     .top-menu-item {
       font-size: 1rem;
       font-weight: 800;
-      margin-top: 0;
-      margin-bottom: 20px;
+      margin-block: 0 20px;
     }
 
     @media (max-width: $mobile) {

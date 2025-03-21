@@ -12,20 +12,17 @@
   }
 
   &__title {
-    margin-block-start: 0;
-    margin-block-end: 0;
+    margin-block: 0;
     a {
       text-decoration: none;
     }
   }
 
   &__byline {
-    margin-block-start: 1rem;
-    margin-block-end: 0.9rem;
+    margin-block: 1rem 0.9rem;
 
     p {
-      margin-block-start: 0;
-      margin-block-end: 0;
+      margin-block: 0;
       color: var(--text-color);
       font-family: var(--rounded-font-family);
       font-size: 0.95rem;
@@ -53,8 +50,7 @@
   }
 
   &__summary {
-    margin-block-start: 0;
-    margin-block-end: 0;
+    margin-block: 0;
   }
 }
 

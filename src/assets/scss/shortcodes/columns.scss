@@ -1,12 +1,10 @@
 @use "../partials/vars";
-@use "../partials/utils" as u;
 
 .columns {
   display: grid;
-  row-gap: 1.5rem;
-  column-gap: 3%;
   grid-template-columns: repeat(12, 1fr);
-  @include u.my(2rem);
+  gap: 3% 1.5rem;
+  margin-block: 2rem;
 }
 
 .columns-2 {

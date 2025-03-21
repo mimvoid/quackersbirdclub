@@ -1,5 +1,4 @@
 @use "../partials/vars" as *;
-@use "../partials/utils" as u;
 
 .accordions {
   display: flex;
@@ -21,10 +20,8 @@
     cursor: pointer;
 
     > h2 {
-      margin-block-start: 0;
-      margin-block-end: 0;
-      margin-inline-end: 1.75rem;
-      @include u.py(1.75rem);
+      margin: 0 1.75rem 0 0;
+      padding-inline: 1.75rem;
 
       color: var(--text-color);
 
@@ -36,8 +33,8 @@
       line-height: 1.5rem;
 
       @media (min-width: $min-desktop) {
-        @include u.py(3rem);
-        margin-inline-end: 3rem;
+        padding-inline: 3rem;
+        margin-right: 3rem;
         font-size: 1.5rem;
         line-height: 2rem;
       }
