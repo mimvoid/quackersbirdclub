@@ -1,5 +1,5 @@
-@use "../partials/vars";
-@use "../partials/utils" as u;
+@use "../../abstracts/vars";
+@use "../../abstracts/utils" as u;
 
 .lite-youtube-fallback {
   aspect-ratio: 16 / 9;

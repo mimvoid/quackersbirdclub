@@ -1,22 +1,3 @@
-@use "partials/css-vars";
-@use "partials/normalize";
-@use "partials/accessibility";
-@use "partials/fonts";
-
-@use "global";
-@use "typography";
-@use "header";
-@use "footer";
-@use "images";
-@use "buttons";
-@use "general";
-@use "content";
-@use "blog";
-@use "pagination";
-@use "breadcrumb";
-@use "toc";
-@use "icons";
-@use "timeline";
-
-@use "extra/extra";
-@use "shortcodes/shortcodes";
+@use "base";
+@use "layout";
+@use "components";

@@ -1,6 +1,6 @@
-@use "partials/vars" as *;
-@use "partials/utils" as u;
-@use "partials/ul-reset";
+@use "../abstracts/vars" as *;
+@use "../abstracts/utils" as u;
+@use "../components/ul-reset";
 
 .header {
   z-index: 20;

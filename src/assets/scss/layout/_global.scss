@@ -1,5 +1,5 @@
-@use "partials/vars" as *;
-@use "partials/ul-reset";
+@use "../abstracts/vars" as *;
+@use "../components/ul-reset";
 
 @media (prefers-reduced-motion: no-preference) {
   html {

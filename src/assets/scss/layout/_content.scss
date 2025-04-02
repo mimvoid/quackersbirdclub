@@ -1,6 +1,5 @@
-@use "partials/utils" as u;
-@use "partials/vars" as *;
-@use "partials/animation";
+@use "../abstracts/utils" as u;
+@use "../abstracts/vars" as *;
 
 header.with-bg {
   position: relative;

@@ -16,13 +16,8 @@
 }
 
 // Classes
-.fade-in-down {
-  animation: 0.55s ease-in-out fade-in-down;
-}
-
-// Reduced motion
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: no-preference) {
   .fade-in-down {
-    animation-duration: 0s;
+    animation: 0.55s ease-in-out fade-in-down;
   }
 }
