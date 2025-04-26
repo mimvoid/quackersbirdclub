@@ -7,13 +7,12 @@
 
     <main id="content" class="wrap" {{ if .IsPage }}data-pagefind-body{{ end }}>
       {{ if ne .Params.showHeader false }}
-        {{ if .Resources.Get "banner" }}<div class="header-wrapper">{{ end }}
         <header
           {{ with .Resources.Get "banner" }}
             class="with-bg container wrap"
             style="background-image: url({{ .RelPermalink | safeCSS }})"
           {{ else }}
-            class="container"
+            class="container content"
           {{ end }}
         >
           {{ if and (eq .Kind "page") (ne .Section "") }}
@@ -22,7 +21,6 @@
           {{- block "title" . }}<h1 class="title">{{ .Title }}</h1>{{- end }}
           {{- if .Resources.Get "banner" -}}<p class="subtitle">{{ .Summary }}</p>{{- end }}
         </header>
-        {{ if .Resources.Get "banner" }}</div>{{ end }}
       {{ end }}
       {{ if or (eq .Kind "section") (eq .Kind "home") }}
       <div class="content container">

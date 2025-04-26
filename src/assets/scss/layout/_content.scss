@@ -3,15 +3,14 @@
 
 header.with-bg {
   position: relative;
-  max-width: 100%;
+
+  margin: 1.5rem auto 5rem;
+  padding: min(10vw, 3.5rem) 6rem;
+  border-radius: 8px;
 
   background-size: cover;
   background-attachment: scroll;
   background-repeat: no-repeat;
-
-  padding: min(10vw, 3.5rem) 6rem;
-  margin: 1.5rem 0 5rem;
-  border-radius: 8px;
 
   @media (min-width: $desktop) {
     h1 {
@@ -74,6 +73,7 @@ header.with-bg {
 // Specific rules to page content
 .content {
   > * {
+    @include u.mx(auto);
     max-width: var(--content-width);
   }
 

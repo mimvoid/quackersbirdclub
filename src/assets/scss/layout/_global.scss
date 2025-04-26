@@ -14,11 +14,7 @@ body {
 
 .container {
   margin: auto;
-  max-width: 85%;
-
-  @media (min-width: $desktop-width) {
-    max-width: var(--container-width);
-  }
+  max-width: var(--container-width);
 
   @media (max-width: $mobile) {
     max-width: 100%;
@@ -26,14 +22,12 @@ body {
 }
 
 .wrap {
-  padding-inline: 1rem;
-
   @media (min-width: 372px) {
     padding-inline: var(--gutter);
   }
 
-  @media (min-width: $desktop-width) {
-    padding-inline: 0;
+  @media (max-width: $mobile) {
+    padding-inline: 1rem;
   }
 }
 
