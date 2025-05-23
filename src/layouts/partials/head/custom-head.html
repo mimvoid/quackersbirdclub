@@ -19,11 +19,10 @@
 {{ end }}
 
 {{ $opts := dict "minify" true }}
+{{ $scripts := slice "ts/emailConverter.ts" "ts/navScroll.ts" }}
 
-{{ with resources.Get "ts/navScroll.ts" | js.Build $opts | fingerprint }}
-<script
-  src="{{ .RelPermalink }}"
-  integrity="{{ .Data.Integrity }}"
-  defer
-></script>
+{{ range $scripts }}
+  {{ with resources.Get . | js.Build $opts | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+  {{ end }}
 {{ end }}

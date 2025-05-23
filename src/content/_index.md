@@ -26,7 +26,7 @@ be happy to have you!
 
 {{< icon "social-instagram" "circle" >}} <a href="https://www.instagram.com/upennquackers" title="Quackers Bird Club at Penn on Instagram">@upennquackers</a>
 
-{{< icon "tabler--mail" "circle" >}} quackersbirdclub [at] gmail [dot] com
+{{< icon "tabler--mail" "circle" >}} <a data-email="club">quackersbirdclub</a>
 
 {{< button text="Events" link="/events" >}}
 {{< /column >}}
