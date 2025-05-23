@@ -10,7 +10,7 @@
         <header
           {{ with .Resources.Get "banner" }}
             class="with-bg container wrap"
-            style="background-image: url({{ .RelPermalink | safeCSS }})"
+            style="background-image: url({{ .RelPermalink | safeCSS }});{{ with .Params.style }}{{ . }}{{ end }}"
           {{ else }}
             class="container content"
           {{ end }}
