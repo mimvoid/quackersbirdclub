@@ -4,7 +4,9 @@ description: Home of the Quackers Bird Club at Penn, a birding and naturalist cl
 date: 2025-02-20T09:00:35-05:00
 resources:
     - name: banner
-      src: home-banner.webp
+      src: Victoria-Sindlinger_2025-03-29.jpg
+      params:
+        style: "background-position: 50% 40%"
 ---
 
 Birding and naturalist club at the University of Pennsylvania
