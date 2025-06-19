@@ -92,6 +92,7 @@ export function addCalendarButton(ev: EventItem) {
   addCal.endDate = end.toDateString();
   addCal.startTime = start.toTimeString();
   addCal.endTime = end.toTimeString();
+  addCal.timeZone = ev.start.timeZone;
 
   return addCal;
 }

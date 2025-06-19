@@ -1,4 +1,3 @@
-import process from "node:process";
 import {
   EventItem,
   mkElement,
@@ -10,19 +9,10 @@ import {
 } from "./helpers.ts";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  // The URL to access the Quackers Bird Club calendar JSON data
-  const icalURL =
-    "https://www.googleapis.com/calendar/v3/calendars/quackersbirdclub@gmail.com/events";
-
   try {
-    process.loadEnvFile();
-
-    const res = await fetch(icalURL, {
-      headers: { "X-goog-api-key": process.env.CALENDAR_KEY },
-    });
-
+    const res = await fetch("/.netlify/functions/fetchCalData");
     if (!res.ok) {
-      throw new Error(`Request to Google Calendar failed: ` + res.status);
+      throw new Error("Failed to fetch event data: " + res.status);
     }
 
     const data = await res.json();
