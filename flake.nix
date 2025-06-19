@@ -19,6 +19,7 @@
         packages = with pkgs; [
           hugo
           dart-sass
+          nodejs
         ];
       };
     });

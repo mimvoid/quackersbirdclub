@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ .Language.Lang }}">
-  {{- partial "head.html" . -}}
+  <head>
+    {{- partial "head.html" . -}}
+    {{- block "head-extra" . }}{{- end }}
+  </head>
   <body class="{{ urlize .Type }} page-{{ .Kind }}">
     {{- partial "accessibility.html" . -}}
     {{- partial "header.html" . -}}

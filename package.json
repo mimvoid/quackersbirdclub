@@ -1,0 +1,17 @@
+{
+  "comments": {
+    "dependencies": {
+      "node-ical": "project"
+    },
+    "devDependencies": {}
+  },
+  "dependencies": {
+    "node-ical": "^0.20.1"
+  },
+  "devDependencies": {},
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  }
+}

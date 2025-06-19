@@ -6,3 +6,6 @@ nvim.shada
 # Hugo
 */public
 */resources/_gen
+
+# Nodejs
+node_modules/
