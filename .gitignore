@@ -8,4 +8,8 @@ nvim.shada
 */resources/_gen
 
 # Nodejs
+.env
 node_modules/
+
+# Local Netlify folder
+.netlify

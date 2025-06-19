@@ -1,6 +1,7 @@
 {{ define "head-extra" }}
-  {{- $opts := dict "minify" true }}
-  {{ with .Resources.Get "iCalEvents.ts" | js.Build $opts | fingerprint }}
+  {{- $externals := slice "node:process" }}
+  {{- $opts := dict "minify" true "externals" $externals }}
+  {{ with resources.Get "ts/events/iCalEvents.ts" | js.Build $opts | fingerprint }}
     <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
   {{ end }}
 {{ end }}
