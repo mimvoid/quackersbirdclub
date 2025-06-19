@@ -1,10 +1,18 @@
 {{- $source := "scss/style.scss" }}
 {{- $target := "css/style.css" }}
-{{ $options := (dict "targetPath" $target "transpiler" "dartsass") }}
+{{ $opts := (dict "targetPath" $target "transpiler" "dartsass") }}
 {{ if eq hugo.Environment "production" }}
-    {{ $options = merge $options (dict "outputStyle" "compressed" "enableSourceMap" false) }}
+    {{ $opts = merge $opts (dict "outputStyle" "compressed" "enableSourceMap" false) }}
 {{ else }}
-    {{ $options = merge $options (dict "outputStyle" "nested" "enableSourceMap" true) }}
+    {{ $opts = merge $opts (dict "outputStyle" "nested" "enableSourceMap" true) }}
 {{ end }}
-{{ $style := resources.Get $source | toCSS $options | resources.Fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" media="all">
+
+{{ with resources.Get $source | toCSS $opts | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" media="all">
+{{ end }}
+
+{{ if .Page.IsHome }}
+{{ with resources.Get "scss/pages/_home.scss" | toCSS $opts | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" media="all">
+{{ end }}
+{{ end }}

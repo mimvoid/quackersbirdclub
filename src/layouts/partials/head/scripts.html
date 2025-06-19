@@ -1,0 +1,8 @@
+{{- $opts := dict "minify" true }}
+{{- $scripts := slice "ts/emailConverter.ts" "ts/navScroll.ts" }}
+
+{{ range $scripts }}
+  {{ with resources.Get . | js.Build $opts | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+  {{ end }}
+{{ end }}

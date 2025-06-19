@@ -1,0 +1,16 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{- partial "head/csp.html" . }}
+<title>{{ cond .IsHome .Site.Title (print .Title " | " .Site.Title) }}</title>
+<meta name="description" content="{{ .Description | default (.Summary | truncate 160) | default .Site.Params.description | default "" }}" />
+
+{{ if .Params.noindex }}
+<meta name="robots" content="noindex, nofollow" />
+{{ end }}
+
+{{- partial "head/css.html" . }}
+{{- partial "head/scripts.html" . }}
+{{- partial "head/twitter-cards.html" . }}
+{{- partial "head/published-time.html" . }}
+{{- partial "head/favicons.html" . }}
+{{- partial "head/sticky-header.html" . }}
