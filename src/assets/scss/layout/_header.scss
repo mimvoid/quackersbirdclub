@@ -6,10 +6,10 @@
   z-index: 20;
   background-color: var(--secondary-400);
   box-shadow: 0 0 12px rgb(0 0 0 / 0.1);
-  transition: top 0.2s ease-in-out;
 
   &.sticky {
     position: sticky;
+    transition: top 0.2s ease-in-out;
 
     // remove sticky on smaller screens
     @media (min-width: 515px) and (max-height: 615px) {
@@ -32,6 +32,7 @@
     @extend .ul-reset;
   }
 
+  // HACK: since the current logo svg has a weird height, target width instead
   .logo {
     width: 8rem;
   }

@@ -1,9 +1,10 @@
 // Responsive images by default
 img {
-  border-radius: 4px;
   max-width: 100%;
-  margin: 0;
   height: auto;
+
+  margin: 0;
+  border-radius: var(--border-radius);
 
   object-fit: cover;
   object-position: var(--focus-x, 50%) var(--focus-y, 50%);

@@ -14,79 +14,19 @@
     padding-block: 2rem;
   }
 
-  hr {
-    opacity: 0;
-  }
-
   a {
     color: var(--footer-link-color);
+
+    &:focus,
     &:hover {
       color: var(--footer-link-color-hover);
     }
   }
-  // Reset lists.
+
+  // Reset lists
   ul {
     @extend .ul-reset;
     padding-inline-start: 0;
-  }
-
-  &__menu-cta-wrapper {
-    @media (min-width: $desktop) {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 2rem;
-    }
-  }
-
-  &__menu {
-    flex-shrink: 0;
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(125px, 200px));
-    gap: 15px;
-
-    a {
-      font-size: 1rem;
-      font-weight: 400;
-      text-decoration: none;
-    }
-    .top-menu-item {
-      font-size: 1rem;
-      font-weight: 800;
-      margin-block: 0 20px;
-    }
-
-    @media (max-width: $mobile) {
-      display: none;
-    }
-  }
-
-  &__cta {
-    @media (min-width: $desktop) {
-      flex-grow: 0;
-    }
-
-    a {
-      width: 100%;
-      font-size: 1.5rem;
-      text-transform: none;
-
-      @media (min-width: $desktop) {
-        width: max-content;
-        margin: 0;
-        margin-left: 20px;
-      }
-      @media (min-width: $desktop-width) {
-        margin-left: 40px;
-      }
-    }
-  }
-
-  &__logo-social-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
   }
 
   .logo-link {
@@ -99,7 +39,7 @@
   .logo {
     width: 12em;
     height: 6em;
-    filter: drop-shadow(0 0 4px rgb(0 0 0 / 0.4))
+    filter: drop-shadow(0 0 4px rgb(0 0 0 / 0.4));
   }
 
   .social-links {
@@ -140,6 +80,14 @@
     }
 
     &__accessibility-git-wrapper {
+      @media (min-width: $desktop) {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 80px;
+        text-align: right;
+      }
+
       @media (max-width: $mobile) {
         margin-top: 20px;
 
@@ -152,18 +100,71 @@
           margin-right: 10px;
         }
       }
-
-      @media (min-width: $desktop) {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-left: 80px;
-        text-align: right;
-      }
     }
 
     p {
       margin: 0;
     }
   }
+}
+
+.footer__menu-cta-wrapper {
+  @media (min-width: $desktop) {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+}
+
+.footer__menu {
+  flex-shrink: 0;
+  flex-grow: 1;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 200px));
+  gap: 0.75em;
+
+  a {
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .top-menu-item {
+    margin-block: 0 1.25em;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+}
+
+.footer__cta {
+  @media (min-width: $desktop) {
+    flex-grow: 0;
+  }
+
+  a {
+    width: 100%;
+    font-size: 1.5rem;
+    text-transform: none;
+
+    @media (min-width: $desktop) {
+      width: max-content;
+      margin: 0;
+      margin-left: 20px;
+    }
+    @media (min-width: $desktop-width) {
+      margin-left: 40px;
+    }
+  }
+}
+
+.footer__logo-social-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -4,7 +4,7 @@
 
 // Set body size
 body {
-  font-family: var(--rounded-font-family);
+  font-family: var(--body-font);
   font-size: max(18px, 1.15rem);
   font-weight: 400;
   color: var(--text-color);
@@ -14,29 +14,37 @@ body {
 
 .title {
   margin-block: 4.5rem 3.5rem;
-  font-size: 4rem;
+  font-size: 5rem;
 
-  @media (min-width: $desktop) {
-    font-size: 5rem;
+  @media (max-width: $mobile) {
+    font-size: 4rem;
   }
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3 {
-  font-family: var(--condensed-font-family);
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  font-family: var(--heading-font);
   font-weight: 800;
 }
 
-h2, .h2,
-h3, .h3 {
+h2,
+.h2,
+h3,
+.h3 {
   color: var(--heading-color);
 }
 
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  font-family: var(--rounded-font-family);
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: var(--body-font);
   font-weight: 700;
   color: var(--heading-color);
 }
@@ -131,18 +139,9 @@ a {
   }
 }
 
-li {
-  margin-bottom: 1rem;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
 blockquote {
   border-left: 4px solid var(--primary-400);
-  padding: 4px 4px 4px 20px;
-
-  font-size: 1rem;
+  padding: 4px 4px 20px;
 
   @media (min-width: $desktop-width) {
     margin: 50px 0;

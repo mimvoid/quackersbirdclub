@@ -2,35 +2,26 @@
 
 .breadcrumbs {
   margin-block: 5rem 0;
-  font-family: var(--rounded-font-family);
-
-  @media (min-width: vars.$desktop-width) {
-    margin-block-start: 6rem;
-  }
 
   + .title,
   + h1,
   + .h1 {
-    margin-block: 1rem 2rem;
+    margin-block: 2rem;
   }
 }
 
 .breadcrumbs-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 10px;
-
   padding-inline-start: 0;
   list-style-image: none;
   list-style: none;
 }
 
 .breadcrumb {
+  display: inline;
   font-size: 1rem;
   font-weight: 700;
   line-height: 150%;
-  letter-spacing: 2.1px;
+  letter-spacing: 2px;
   text-transform: uppercase;
 
   a {
@@ -40,7 +31,7 @@
 
   + .breadcrumb::before {
     content: "»";
-    margin-right: 0.5em;
+    margin-inline: 0.5em;
     color: var(--gray-600);
   }
 }

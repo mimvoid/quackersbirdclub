@@ -1,9 +1,8 @@
-// Default button style
 .button {
   display: inline-block;
   margin-block: 1rem;
   padding: 0.75rem 1.25rem;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 
   background-color: var(--primary-700);
   color: var(--white);
@@ -41,9 +40,5 @@
       color: var(--black);
       background-color: var(--white);
     }
-  }
-
-  + .button {
-    margin-block: 0 0.5rem;
   }
 }

@@ -6,13 +6,14 @@ header.with-bg {
 
   margin: 1.5rem auto 5rem;
   padding: min(10vw, 3.5rem) 6rem;
-  border-radius: 8px;
+  border-radius: calc(var(--border-radius) * 2);
 
   background-size: cover;
   background-attachment: scroll;
   background-repeat: no-repeat;
 
   @media (min-width: $desktop) {
+    // Keep text at the left of the banner
     h1 {
       max-width: 70%;
     }
@@ -28,13 +29,14 @@ header.with-bg {
   h1,
   p,
   .breadcrumbs {
-    position: relative;
+    position: relative; // appear above the overlay
     color: var(--white);
   }
 
   .breadcrumb a {
-    @extend .breadcrumbs;
+    color: var(--white);
 
+    &:focus,
     &:hover {
       color: var(--gray-600);
     }
@@ -56,7 +58,6 @@ header.with-bg {
 
   p {
     font-size: 1.25rem;
-    animation-delay: 0.1s;
     text-wrap: balance;
   }
 
@@ -73,7 +74,7 @@ header.with-bg {
 // Specific rules to page content
 .content {
   > * {
-    @include u.mx(auto);
+    margin-inline: auto;
     max-width: var(--content-width);
   }
 
@@ -88,7 +89,7 @@ header.with-bg {
   }
 
   // Code block restriction
-  div.highlight {
+  .highlight {
     max-width: var(--content-width);
   }
 

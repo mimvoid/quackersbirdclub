@@ -1,7 +1,10 @@
 /* Define CSS variables */
 :root {
-  --condensed-font-family: "Asap", "Oswald", "Impact", "Arial Black", sans-serif;
-  --rounded-font-family: "Public Sans", "Libre Franklin", "Franklin Gothic", sans-serif;
+  --heading-font: "Asap", "Oswald", "Impact", "Arial Black", sans-serif;
+  --body-font: "Public Sans", "Libre Franklin", "Franklin Gothic", sans-serif;
+
+  --condensed-font-family: var(--heading-font);
+  --rounded-font-family: var(--body-font);
 
   --black: rgb(24, 30, 40);
   --white: rgb(248, 245, 242);
@@ -34,5 +37,6 @@
   --container-width: 1200px;
   --content-width: 895px;
 
+  --border-radius: 4px;
   --transition: all 0.2s ease-in-out;
 }

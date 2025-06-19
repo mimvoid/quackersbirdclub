@@ -7,23 +7,24 @@
 }
 
 .skip-link {
-  @include u.visually-hidden;
   transition: none;
 
+  &:not(:focus) {
+    @include u.visually-hidden;
+  }
+
   &:focus {
-    clip: auto !important;
-    display: block;
-    height: auto;
-    width: auto;
+    position: fixed;
     left: 5px;
     top: 5px;
-    padding: 24px;
-    color: transparent;
+
+    clip: auto !important;
+    border-radius: var(--border-radius);
+    padding: 0.5em;
+
+    color: var(--link-color-hover);
+    background-color: var(--white);
+
     z-index: 999999;
   }
-}
-
-// Do not show the outline on the skip link target
-#maincontent[tabindex="-1"]:focus {
-  outline: 0;
 }

@@ -22,9 +22,7 @@ body {
 }
 
 .wrap {
-  @media (min-width: 372px) {
-    padding-inline: var(--gutter);
-  }
+  padding-inline: var(--gutter);
 
   @media (max-width: $mobile) {
     padding-inline: 1rem;

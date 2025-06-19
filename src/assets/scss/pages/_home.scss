@@ -1,0 +1,13 @@
+@media (prefers-reduced-motion: no-preference) {
+  header.with-bg {
+    h1,
+    p {
+      animation: 0.55s ease-in-out fade-in-down;
+    }
+
+    p {
+      animation-delay: 0.1s;
+      text-wrap: wrap;
+    }
+  }
+}
