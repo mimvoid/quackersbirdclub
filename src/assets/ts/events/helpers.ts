@@ -5,7 +5,7 @@ class UserItem {
   self: boolean;
 }
 class DateItem {
-  dateTime: string;
+  dateTime: Date;
   timeZone: string;
 }
 export class EventItem {
