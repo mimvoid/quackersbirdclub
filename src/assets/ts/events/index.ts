@@ -10,8 +10,16 @@ import {
 } from "./helpers";
 import { tablerClock, tablerMapPin } from "./icons";
 
-async function fetchEventJson(): Promise<Array<any>> {
-  const res = await fetch("/.netlify/functions/fetchCalData");
+/**
+ * Since Google Calendar requires an API key, we ask Netlify to fetch
+ * the data with the key stored as an environment variable.
+ *
+ * (See `fetchCalendarData` in the `netlify/functions` folder.)
+ *
+ * @returns A parsed JSON array.
+ */
+async function fetchEventJson(): Promise<any[]> {
+  const res = await fetch("/.netlify/functions/fetchCalendarData");
   if (!res.ok) {
     throw new Error("Failed to fetch event data: " + res.status);
   }
@@ -19,7 +27,14 @@ async function fetchEventJson(): Promise<Array<any>> {
   return res.json();
 }
 
-function processEventJson(jsonData: Array<any>): EventItem[] {
+/**
+ * Creates an array of EventItems from raw JSON data, and sorts
+ * them in ascending order by start date.
+ *
+ * @jsonData The array of raw event data.
+ * @returns An array of typed event item objects.
+ */
+function processEventJson(jsonData: any[]): EventItem[] {
   const events: EventItem[] = jsonData.map((rawEvent) => {
     const evItem: EventItem = Object.assign(new EventItem(), rawEvent);
 
@@ -30,18 +45,23 @@ function processEventJson(jsonData: Array<any>): EventItem[] {
     return evItem;
   });
 
-  // Sort events by start date
   return events.sort(
     (a, b) => b.start.dateTime.getTime() - a.start.dateTime.getTime(),
   );
 }
 
+/**
+ * Adds the content of one event as HTML.
+ *
+ * @param timeline The HTML parent element for the card.
+ * @param ev The event data.
+ */
 function makeEventCard(timeline: HTMLElement, ev: EventItem): void {
   const card = timeline.appendChild(
     mkElement("li", (self) => self.classList.add("card")),
   );
 
-  // Create date section
+  // -- Date section
   const date = card.appendChild(document.createElement("div"));
   date.appendChild(
     mkTime((self) => {
@@ -52,6 +72,7 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem): void {
     }),
   );
 
+  // -- Text section
   const text = card.appendChild(
     mkElement("div", (self) => self.classList.add("timeline-text")),
   );

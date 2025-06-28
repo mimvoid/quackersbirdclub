@@ -1,3 +1,13 @@
+/**
+ * A Netlify serverless function to fetch the club's Google Calendar data.
+ *
+ * Since Google Calendar requires an API key, that key is stored as
+ * an environment variable on the hosting platform Netlify (since having it
+ * as plain text is plain dangerous).
+ *
+ * Basically, this function lets other functions fetch the data without
+ * exposing the API key.
+ */
 export async function handler() {
   // The URL to access the Quackers Bird Club calendar JSON data
   const calURL =
@@ -22,6 +32,13 @@ export async function handler() {
       );
     }
 
+    /**
+     * NOTE: It would probably be more efficient to forward the response
+     * directly (without parsing and stringifying the JSON), but I have not
+     * figured out how to do that yet.
+     *
+     * It would be difficult to test and it still works, so it's fine for now.
+     */
     const data = await response.json();
     return {
       statusCode: 200,
@@ -34,4 +51,4 @@ export async function handler() {
       body: JSON.stringify(err),
     };
   }
-};
+}

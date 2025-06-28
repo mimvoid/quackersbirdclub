@@ -1,5 +1,6 @@
-// Show the nav bar when scrolling up,
-// and hide it when scrolling down
+/**
+ * Shows the navigation bar when scrolling up, and hides it when scrolling down.
+ */
 
 const navBar = document.querySelector("header");
 

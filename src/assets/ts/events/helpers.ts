@@ -8,6 +8,8 @@ class DateItem {
   dateTime: Date;
   timeZone: string;
 }
+
+// The basic structure of an event from the Google Calendar API.
 export class EventItem {
   kind: string;
   etag: string;
