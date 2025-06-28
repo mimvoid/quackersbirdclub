@@ -53,6 +53,12 @@ export function mkElement(tag: string, setup: (self: HTMLElement) => void) {
   return element;
 }
 
+export function mkTime(setup: (self: HTMLTimeElement) => void) {
+  const element = document.createElement("time");
+  setup(element);
+  return element;
+}
+
 export function mkText(tag: string, textContent: string) {
   const element = document.createElement(tag);
   element.textContent = textContent;
@@ -70,28 +76,22 @@ export function amPmStr(dateTime: Date) {
 }
 
 export function trimLoc(loc: string) {
-  // Remove ", USA" suffix
-  if (loc.endsWith(", USA")) {
-    return loc.substring(0, loc.length - 5);
-  }
-  return loc;
+  // Remove ", USA" suffix if it exists
+  return loc.endsWith(", USA") ? loc.slice(0, -5) : loc;
 }
 
 export function addCalendarButton(ev: EventItem) {
   const addCal = document.createElement("add-to-calendar-button");
-
-  const start = new Date(ev.start.dateTime);
-  const end = new Date(ev.end.dateTime);
 
   addCal.name = ev.summary;
   addCal.description = ev.description;
   addCal.options =
     "'iCal','Google','Outlook.com','Microsoft365','MicrosoftTeams','Apple','Yahoo'";
   addCal.location = ev.location;
-  addCal.startDate = start.toDateString();
-  addCal.endDate = end.toDateString();
-  addCal.startTime = start.toTimeString();
-  addCal.endTime = end.toTimeString();
+  addCal.startDate = ev.start.dateTime.toDateString();
+  addCal.endDate = ev.end.dateTime.toDateString();
+  addCal.startTime = ev.start.dateTime.toTimeString();
+  addCal.endTime = ev.end.dateTime.toTimeString();
   addCal.timeZone = ev.start.timeZone;
 
   return addCal;
