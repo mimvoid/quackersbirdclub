@@ -1,18 +1,17 @@
-{{- $source := "scss/style.scss" }}
-{{- $target := "css/style.css" }}
-{{ $opts := (dict "targetPath" $target "transpiler" "dartsass") }}
-{{ if eq hugo.Environment "production" }}
-    {{ $opts = merge $opts (dict "outputStyle" "compressed" "enableSourceMap" false) }}
-{{ else }}
-    {{ $opts = merge $opts (dict "outputStyle" "nested" "enableSourceMap" true) }}
-{{ end }}
+{{- $isProduction := eq hugo.Environment "production" }}
+{{- $opts := dict
+    "transpiler" "dartsass"
+    "outputStyle" (cond $isProduction "compressed" "nested")
+    "enableSourceMap" (not $isProduction)
+}}
 
-{{ with resources.Get $source | toCSS $opts | resources.Fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" media="all">
-{{ end }}
+{{- $sources := slice "scss/style.scss" -}}
+{{- if .Page.IsHome }}
+  {{ $sources = $sources | append "scss/pages/_home.scss" }}
+{{ end -}}
 
-{{ if .Page.IsHome }}
-{{ with resources.Get "scss/pages/_home.scss" | toCSS $opts | resources.Fingerprint "sha256" }}
+{{- range $sources }}
+{{ with resources.Get . | toCSS $opts | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" media="all">
 {{ end }}
 {{ end }}

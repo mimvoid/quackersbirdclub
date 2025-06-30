@@ -147,24 +147,6 @@
     }
   }
 
-  &__cta-language-wrapper {
-    @media (min-width: $desktop) {
-      display: flex;
-      align-items: center;
-      margin-left: auto;
-    }
-  }
-
-  &__search-language-wrapper {
-    display: flex;
-
-    @media (max-width: $mobile) {
-      flex-direction: row-reverse;
-      align-items: flex-start;
-      gap: 2rem;
-    }
-  }
-
   // CTA
   .main-menu-cta {
     margin-bottom: 0;
@@ -200,75 +182,63 @@
         border-bottom: 0;
       }
     }
-  }
 
-  .menu-item-has-children {
-    position: relative;
+    &:has(.sub-menu) {
+      position: relative;
 
-    &.is-open {
-      transition: all 0.05s ease-out;
-
-      @media (prefers-reduced-motion: reduce) {
-        transition: none;
+      @media (prefers-reduced-motion: no-preference) {
+        transition: all 0.05s ease-out;
       }
 
-      a::after {
-        // opening menu / rotating arrows
-        transition: transform 0.2s ease-in-out;
-        transform: rotateX(180deg) translateY(-50%);
-
-        @media (prefers-reduced-motion: reduce) {
-          transition: none;
+      // activate pop-out menu, with is-open class or with focus
+      &.is-open,
+      &:hover,
+      &:focus-within {
+        > .sub-menu {
+          opacity: 1;
+          visibility: visible;
+          overflow: visible;
+          height: unset;
         }
 
-        @media (min-width: $desktop) {
-          margin-top: 0.1rem;
+        > a::after {
+          // opening menu / rotating arrows
+          transform: rotateX(180deg) translateY(-50%);
         }
       }
-    }
 
-    > a::after {
-      content: "";
-      display: inline-block;
+      > a::after {
+        content: "";
+        display: inline-block;
 
-      background-image: url("data:image/svg+xml,%3Csvg width='9' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.21 1.078l3.395 3 3.395-3' stroke='%23b1b1b1' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-size: 0.6rem;
-      background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg width='9' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.21 1.078l3.395 3 3.395-3' stroke='%23b1b1b1' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-size: 0.6rem;
+        background-repeat: no-repeat;
 
-      height: 0.5rem;
-      width: 0.6rem;
-      margin-left: 0.4rem;
+        height: 0.5rem;
+        width: 0.6rem;
+        margin-left: 0.4rem;
 
-      transform: rotate(0deg);
-      transform-origin: 50% 0%;
+        transform: rotate(0deg);
+        transform-origin: 50% 0%;
 
-      // closing menu
-      transition: all 0.05s ease-in-out;
-
-      @media (prefers-reduced-motion: reduce) {
-        transition: none;
+        @media (prefers-reduced-motion: no-preference) {
+          transition: transform 0.2s ease-in-out;
+        }
       }
-    }
-
-    // activate pop-out menu, with is-open class or with focus
-    &.is-open .sub-menu,
-    &:focus > .sub-menu,
-    &:focus-within > .sub-menu {
-      opacity: 1;
-      visibility: visible;
-      overflow: visible;
-      height: unset;
     }
   }
 
   .sub-menu {
-    // use JS to show
-    display: none;
-    padding-block: 1.25rem;
+    margin-left: 0; // reset
+    padding: 1.15rem;
+
+    // visibility
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
 
     @media (min-width: $desktop) {
-      display: block;
-
       position: absolute;
       min-width: 12rem;
       height: 0;
@@ -276,28 +246,13 @@
       top: 100%;
       z-index: 20;
 
-      padding-block: 1rem 0;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--gray-200);
 
-      // visiblity
-      opacity: 0;
-      visibility: hidden;
-      overflow: hidden;
-    }
-
-    &__nav {
-      margin-left: 0; // reset
-      padding-left: 0; // reset
-
-      @media (min-width: $min-desktop) {
-        border-radius: 4px;
-        border: 1px solid var(--gray-200);
-        padding: 1.1rem;
-
-        background-color: var(--white);
-        box-shadow:
-          0px 4px 4px -2px rgba(16, 24, 40, 0.03),
-          0px 8px 8px -4px rgba(16, 24, 40, 0.08);
-      }
+      background-color: var(--white);
+      box-shadow:
+        0px 4px 4px -2px rgba(16, 24, 40, 0.03),
+        0px 8px 8px -4px rgba(16, 24, 40, 0.08);
     }
   }
 }

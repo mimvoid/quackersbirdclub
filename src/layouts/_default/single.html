@@ -1,7 +1,3 @@
 {{ define "main" }}
-  {{ if .Resources.Get "banner" }}
-    {{ .ContentWithoutSummary }}
-  {{ else }}
-    {{ .Content }}
-  {{ end }}
+{{ cond (.Resources.Get "banner") .ContentWithoutSummary .Content }}
 {{ end }}

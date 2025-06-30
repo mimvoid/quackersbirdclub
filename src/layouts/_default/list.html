@@ -1,13 +1,9 @@
 {{ define "main" }}
-{{ if .Resources.Get "banner" }}
-  {{ .ContentWithoutSummary }}
-{{ else }}
-  {{ .Content }}
+{{ cond (.Resources.Get "banner") .ContentWithoutSummary .Content }}
+{{ range .Pages }}
+  <article>
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p>{{ .Summary | plainify }}</p>
+  </article>
 {{ end }}
-  {{ range .Pages }}
-    <article>
-      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-      <p>{{ .Summary | plainify }}</p>
-    </article>
-  {{ end }}
 {{ end }}

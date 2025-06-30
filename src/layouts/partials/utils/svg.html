@@ -5,4 +5,4 @@
 {{- $regex := "<svg (.*)?>(.*)</svg>" -}}
 {{- $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` $svg -}}
 
-{{ return (replaceRE $regex $replaceWith (printf "/assets/icons/%s.svg" $svg | readFile) | safeHTML) }}
+{{ return (printf "/assets/icons/%s.svg" $svg | readFile | replaceRE $regex $replaceWith | safeHTML) }}

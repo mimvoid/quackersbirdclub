@@ -30,7 +30,6 @@
   }
 
   .logo-link {
-    display: block;
     @media (max-width: $mobile) {
       display: none;
     }
@@ -47,64 +46,22 @@
     @include u.flex-center;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 1rem;
 
-    @media (min-width: $desktop) {
-      margin-top: 0;
+    @media (max-width: $mobile) {
+      margin-top: 1rem;
     }
 
     a {
       display: flex;
       @include u.flex-center;
       padding: 10px;
-
-      &:hover {
-        opacity: 0.8;
-      }
     }
   }
 
   .copyright {
+    margin-block: 0;
     font-size: 0.9rem;
     letter-spacing: 0.2px;
-
-    @media (min-width: $desktop) {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-    }
-
-    a {
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    &__accessibility-git-wrapper {
-      @media (min-width: $desktop) {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-left: 80px;
-        text-align: right;
-      }
-
-      @media (max-width: $mobile) {
-        margin-top: 20px;
-
-        a + a {
-          border-left: 1px solid var(--white);
-          padding-left: 10px;
-        }
-
-        a:first-of-type {
-          margin-right: 10px;
-        }
-      }
-    }
-
-    p {
-      margin: 0;
-    }
   }
 }
 
@@ -142,9 +99,7 @@
 }
 
 .footer__cta {
-  @media (min-width: $desktop) {
-    flex-grow: 0;
-  }
+  flex-grow: 0;
 
   a {
     width: 100%;
@@ -154,10 +109,6 @@
     @media (min-width: $desktop) {
       width: max-content;
       margin: 0;
-      margin-left: 20px;
-    }
-    @media (min-width: $desktop-width) {
-      margin-left: 40px;
     }
   }
 }

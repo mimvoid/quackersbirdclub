@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html lang="{{ .Language.Lang }}">
-  <head>
-    {{- partial "head.html" . -}}
-    {{- block "head-extra" . }}{{- end }}
-  </head>
-  <body class="{{ urlize .Type }} page-{{ .Kind }}">
-    {{- partial "accessibility.html" . -}}
-    {{- partial "header.html" . -}}
+<head>
+  {{- partial "head" . -}}
+  {{- block "head-extra" . }}{{- end }}
+</head>
+<body class="{{ urlize .Type }} page-{{ .Kind }}">
+  {{- partialCached "accessibility" . -}}
+  {{- partialCached "header" . -}}
 
-    <main id="content" class="wrap" {{ if .IsPage }}data-pagefind-body{{ end }}>
-      {{ if ne .Params.showHeader false }}
-        <header
-          {{ with .Resources.Get "banner" }}
-            class="with-bg container wrap"
-            style="background-image: url({{ .RelPermalink | safeCSS }});{{ with .Params.style }}{{ . }}{{ end }}"
-          {{ else }}
-            class="container content"
-          {{ end }}
-        >
-          {{ if and (eq .Kind "page") (ne .Section "") }}
-          {{- partial "breadcrumb.html" . -}}
-          {{ end }}
-          {{- block "title" . }}<h1 class="title">{{ .Title }}</h1>{{- end }}
-          {{- if .Resources.Get "banner" -}}<p class="subtitle">{{ .Summary }}</p>{{- end }}
-        </header>
-      {{ end }}
-      {{ if or (eq .Kind "section") (eq .Kind "home") }}
-      <div class="content container">
-      {{ else }}
-      <article class="content container">
-      {{ end }}
-      {{- block "main" . }}{{ .Content }}{{- end }}
-      {{ if or (eq .Kind "section") (eq .Kind "home") }}
-      </div>
-      {{ else }}
-      </article>
-      {{ end }}
-    </main>
-    {{- partial "footer.html" . -}}
-  </body>
+  <main id="content" class="wrap" {{ if .IsPage }}data-pagefind-body{{ end }}>
+    {{ if ne .Params.showHeader false }}
+      <header
+        {{ $banner := .Resources.Get "banner" }}
+        {{ with $banner }}
+          class="with-bg container wrap"
+          style="background-image: url({{ .RelPermalink | safeCSS }});{{ with .Params.style }}{{ . }}{{ end }}"
+        {{ else }}
+          class="container content"
+        {{ end }}
+      >
+        {{ if and .IsPage .Section }}
+        {{- partial "breadcrumb.html" . -}}
+        {{ end }}
+        {{- block "title" . }}<h1 class="title">{{ .Title }}</h1>{{- end }}
+        {{- if $banner -}}<p class="subtitle">{{ .Summary }}</p>{{- end }}
+      </header>
+    {{ end }}
+    <article class="content container">
+      {{- block "main" . }}{{ .Content -}}{{- end }}
+    </article>
+  </main>
+  {{- partial "footer.html" . -}}
+</body>
 </html>

@@ -1,22 +1,17 @@
-{{ $siteTitle := .Site.Title }}
-{{ $socialLinks := .Site.Params.social_links }}
-{{ with $socialLinks }}
-  {{ $validLinks := slice }}
-  {{ range $key, $value := . }}
-    {{ if $value }}
-      {{ $validLinks = $validLinks | append (dict "key" $key "value" $value) }}
-    {{ end }}
-  {{ end }}
+{{- $validLinks := slice -}}
+{{- range $key, $value := .Site.Params.social_links }}
+  {{ if not $value }}{{ continue }}{{ end }}
+  {{ $validLinks = $validLinks | append (dict "key" $key "value" $value) }}
+{{ end -}}
 
-  {{ if gt (len $validLinks) 0 }}
-  <ul class="social-links">
-    {{ range $validLinks }}
-    <li>
-      <a href="{{ .value }}" title="{{ i18n "social_link_title" (dict "SiteTitle" $siteTitle "Network" (humanize .key)) | default (printf "%s on %s" $siteTitle (humanize .key)) }}" class="circle">
-        {{ partial "utils/svg" (print "social-" .key) }}
-      </a>
-    </li>
-    {{ end }}
-  </ul>
+{{ with $validLinks }}
+<ul class="social-links">
+  {{ range . }}
+  <li>
+    <a href="{{ .value }}" title="{{ printf "%s on %s" site.Title (humanize .key) }}" class="circle">
+      {{ partial "utils/svg" (print "social-" .key) }}
+    </a>
+  </li>
   {{ end }}
+</ul>
 {{ end }}

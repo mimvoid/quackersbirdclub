@@ -1,61 +1,37 @@
 {{ $src := .Get "src" }}
 {{ $width := .Get "width" | replaceRE "[^0-9]" "" }}
 {{ $height := .Get "height" | replaceRE "[^0-9]" "" }}
-{{ $class := .Get "class" }}
-{{ $style := .Get "style" }}
-{{ $caption := .Get "caption" }}
 {{ $loading := .Get "loading" | default "lazy" }}
+{{ $altAsTitle := partial "utils/parse_bool" (.Get "altAsTitle") }}
 
-{{ $altAsTitle := .Get "altAsTitle" }}
-{{ with $altAsTitle }}
-  {{ $altAsTitle = partial "utils/parse_bool" . }}
-{{ end}}
+{{/* Get the alt attribute if it exists, otherwise extract the file name from the path */}}
+{{ $alt := .Get "alt" | default (path.BaseName $src | replaceRE "[-_]" " " | humanize) }}
 
-{{/* Extract the file name from the path */}}
-{{ $filenameWithExt := path.Base $src }}
-
-{{/* Remove the file extension */}}
-{{ $filename := strings.TrimSuffix (path.Ext $filenameWithExt) $filenameWithExt }}
-
-{{/* Convert hyphens and underscores to spaces */}}
-{{ $name := $filename | replaceRE "[-_]" " " }}
-
-{{/* Optionally capitalize the first letter (if desired) */}}
-{{ $nameCapitalized := humanize $name }}
-
-{{/* Check for alt, and default to $nameCapitalized if not provided */}}
-{{ $altVal := .Get "alt" }}
-{{ $safeAltVal := $altVal | safeHTMLAttr }}
-
-{{ $alt := "" }} {{/* Declare the variable first */}}
-
-{{ if $safeAltVal }}
-    {{ $alt = $safeAltVal }}
-{{ else }}
-    {{ $alt = $nameCapitalized | safeHTMLAttr }}
-{{ end }}
-
-{{ $asset := .Page.Resources.Get $src }}
-
-{{ if $src }}
+{{ $pageAsset := .Page.Resources.Get $src }}
+{{ $asset := $pageAsset | default (resources.Get $src) }}
+{{ $caption := .Get "caption" }}
 
 {{ if $caption }}
-  <figure{{ with $class }} class="{{ . }}"{{ end -}}{{ with $style }} style="{{ safeCSS . }}"{{ end -}}>
-  {{ end }}
-  <img
-    src="{{ $src }}"
-    width="{{ with $width }}{{ . }}{{ else }}{{ $asset.Width }}{{ end }}"
-    height="{{ with $height }}{{ . }}{{ else }}{{ $asset.Height }}{{ end }}"
-    alt="{{ $alt | safeHTMLAttr }}"{{ if $altAsTitle }} title="{{ $alt | safeHTMLAttr }}"{{ end }}
-    loading="{{ $loading }}"
-    {{- if not $caption }}
-      {{ with $class }}class="{{ . }}"{{ end -}}
-      {{ with $style }}style="{{ safeCSS . }}"{{ end -}}
-    {{ end -}}
-    >
-  {{- with $caption -}}
-    <figcaption>{{ markdownify . }}</figcaption>
-  </figure>
-{{- end -}}
-
+<figure
+  {{ with .Get "class" }}class="{{ . }}"{{ end -}}
+  {{ with .Get "style" }}style="{{ safeCSS . }}"{{ end -}}
+>
+{{ end }}
+<img
+  src="{{ cond (and $asset (not $pageAsset)) $asset.RelPermalink $src }}"
+  {{ with default $width $asset.Width }}width="{{ . }}"{{ end }}
+  {{ with default $height $asset.Height }}height="{{ . }}"{{ end -}}
+  {{- with $alt | safeHTMLAttr }}
+    alt="{{ . }}"
+    {{ if $altAsTitle }}title="{{ . }}"{{ end }}
+  {{- end -}}
+  loading="{{ $loading }}"
+  {{- if not $caption }}
+    {{ with .Get "class" }}class="{{ . }}"{{ end -}}
+    {{ with .Get "style" }}style="{{ safeCSS . }}"{{ end -}}
+  {{ end -}}
+/>
+{{ with $caption }}
+  <figcaption>{{ markdownify . }}</figcaption>
+</figure>
 {{ end }}

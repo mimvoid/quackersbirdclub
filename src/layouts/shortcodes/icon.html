@@ -6,4 +6,4 @@
   {{- $replaceWith = printf `<svg class="%s %s" ${1}>${2}</svg>` $svg . -}}
 {{- end -}}
 
-{{- replaceRE $regex $replaceWith (printf "/assets/icons/%s.svg" $svg | readFile) | safeHTML -}}
+{{- printf "/assets/icons/%s.svg" $svg | readFile | replaceRE $regex $replaceWith | safeHTML -}}
