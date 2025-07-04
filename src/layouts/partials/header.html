@@ -12,7 +12,7 @@
     {{ end }}
 
     {{ with site.Menus.main }}
-      <nav class="main-menu">
+      <nav id="main-menu" class="main-menu">
         <ul class="main-menu__wrapper">
           {{ range . }}
           <li class="top-menu-item">
@@ -42,7 +42,7 @@
         <a href="{{ .link | relLangURL }}" class="button main-menu-cta">{{ .text }}</a>
         {{ end }}
       </nav>
-      <button class="hamburger" type="button" aria-label="Toggle Menu">
+      <button id="hamburger" class="hamburger" type="button" aria-label="Toggle Menu">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>

@@ -1,6 +1,6 @@
 {{- $opts := dict "minify" true }}
 {{- $isProduction := eq hugo.Environment "production" }}
-{{- $scripts := slice "ts/emailConverter.ts" "ts/navScroll.ts" "js/scripts.js" }}
+{{- $scripts := slice "ts/emailConverter.ts" "ts/navScroll.ts" "ts/hamburgerMenu.ts" -}}
 
 {{ range $scripts }}
   {{ $resource := resources.Get . | js.Build $opts }}
