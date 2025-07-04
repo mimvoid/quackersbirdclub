@@ -1,10 +1,10 @@
 import "add-to-calendar-button";
 
-class UserItem {
+type UserItem = {
   email: string;
   self: boolean;
 }
-class DateItem {
+type DateItem = {
   dateTime: Date;
   timeZone: string;
 }

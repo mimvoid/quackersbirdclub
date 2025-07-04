@@ -10,9 +10,9 @@
  */
 
 interface Email {
-  name: string;
-  domain: string;
-  dataValue: string;
+  readonly name: string;
+  readonly domain: string;
+  readonly dataValue: string;
 }
 
 const emails: Email[] = [

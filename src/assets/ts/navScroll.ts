@@ -8,7 +8,7 @@ if (navBar !== null) {
   const navBarHeight = navBar.offsetHeight + 8; // offset to hide shadow more
   let prevPos = window.scrollY;
 
-  window.onscroll = () => {
+  window.addEventListener("scroll", () => {
     if (
       document.body.scrollTop > navBarHeight ||
       document.documentElement.scrollTop > navBarHeight
@@ -17,5 +17,5 @@ if (navBar !== null) {
       navBar.style.top = prevPos > currentPos ? "0" : `-${navBarHeight}px`;
       prevPos = currentPos;
     }
-  };
+  });
 }

@@ -34,8 +34,8 @@ async function fetchEventJson(): Promise<any[]> {
  * @jsonData The array of raw event data.
  * @returns An array of typed event item objects.
  */
-function processEventJson(jsonData: any[]): EventItem[] {
-  const events: EventItem[] = jsonData.map((rawEvent) => {
+function processEventJson(jsonData: any[]) {
+  const events = jsonData.map((rawEvent) => {
     const evItem: EventItem = Object.assign(new EventItem(), rawEvent);
 
     // Make sure the dates get parsed
@@ -56,7 +56,7 @@ function processEventJson(jsonData: any[]): EventItem[] {
  * @param timeline The HTML parent element for the card.
  * @param ev The event data.
  */
-function makeEventCard(timeline: HTMLElement, ev: EventItem): void {
+function makeEventCard(timeline: HTMLElement, ev: EventItem) {
   const card = timeline.appendChild(
     mkElement("li", (self) => self.classList.add("card")),
   );
@@ -109,16 +109,21 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem): void {
     const jsonData = await fetchEventJson();
     const events = processEventJson(jsonData);
 
+    // A container to create new elements without manipulating the DOM.
+    // This lets us update the page at the very end, requiring only a single reflow.
+    const fragment = document.createDocumentFragment();
+
     // Store divs for each year for easy access
     const timelines = new Map<number, HTMLElement>();
 
-    for (const ev of events) {
+    for (let i = 0, len = events.length; i < len; i++) {
+      const ev = events[i];
       const year = ev.start.dateTime.getFullYear();
       let timeline = timelines.get(year);
 
       if (timeline == undefined) {
         // Set up a new year timeine
-        const yearDiv = eventNode.appendChild(document.createElement("div"));
+        const yearDiv = fragment.appendChild(document.createElement("div"));
         yearDiv.appendChild(mkText("h2", String(year)));
 
         timeline = yearDiv.appendChild(
@@ -134,6 +139,9 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem): void {
 
       makeEventCard(timeline, ev);
     }
+
+    // Add everything onto the page
+    eventNode.appendChild(fragment);
   } catch (err) {
     console.error(err.message);
   }
