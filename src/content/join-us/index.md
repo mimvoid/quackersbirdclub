@@ -1,7 +1,7 @@
 ---
 title: Join Us!
 linkTitle: Join Us
-description: ""
+description: Find and join the Quackers Bird Club on our platforms
 date: 2025-02-20T11:05:46-05:00
 layout: main
 resources:
