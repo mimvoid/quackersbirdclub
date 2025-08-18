@@ -24,9 +24,13 @@ We host birding outings and the occasional craft session. No matter how often yo
 be happy to have you!
 {{< /column >}}
 {{< column >}}
-{{< icon "social-telegram" "circle" >}} <a href="https://t.me/+5wtWHPQWUflmOWY5" title="Quackers Bird Club at Penn on Telegram">Telegram Group Chat</a>
+{{< icon "social-telegram" "circle" >}} <a
+    href="https://t.me/+5wtWHPQWUflmOWY5"
+    title="Quackers Bird Club at Penn on Telegram">Telegram Group Chat</a>
 
-{{< icon "social-instagram" "circle" >}} <a href="https://www.instagram.com/upennquackers" title="Quackers Bird Club at Penn on Instagram">@upennquackers</a>
+{{< icon "social-instagram" "circle" >}} <a
+    href="https://www.instagram.com/upennquackers"
+    title="Quackers Bird Club at Penn on Instagram">@upennquackers</a>
 
 {{< icon "tabler--mail" "circle" >}} <a data-email="club">quackersbirdclub</a>
 
@@ -84,12 +88,3 @@ with fellow bird lovers.
 {{< /card >}}
 {{< /cards >}}
 </div>
-<!---->
-<!--## See More-->
-<!---->
-<!--Interested even just a little in our club? Want to see what we're doing? Have something-->
-<!--you'd like to share?-->
-<!---->
-<!--Feel free to reach out and follow us!-->
-<!---->
-<!--{{< button text="Join Us!" link="/join-us" >}}-->
