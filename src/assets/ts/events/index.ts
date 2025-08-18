@@ -5,7 +5,6 @@ import {
   month,
   amPmStr,
   trimLoc,
-  addCalendarButton,
   mkTime,
 } from "./helpers";
 import { tablerClock, tablerMapPin } from "./icons";
@@ -94,9 +93,6 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem) {
   if (ev.description) {
     text.appendChild(mkText("p", ev.description));
   }
-
-  // FIX: The add to calendar button does not actually work
-  text.appendChild(addCalendarButton(ev));
 }
 
 (async () => {

@@ -1,5 +1,3 @@
-import "add-to-calendar-button";
-
 type UserItem = {
   email: string;
   self: boolean;
@@ -80,21 +78,4 @@ export function amPmStr(dateTime: Date) {
 export function trimLoc(loc: string) {
   // Remove ", USA" suffix if it exists
   return loc.endsWith(", USA") ? loc.slice(0, -5) : loc;
-}
-
-export function addCalendarButton(ev: EventItem) {
-  const addCal = document.createElement("add-to-calendar-button");
-
-  addCal.name = ev.summary;
-  addCal.description = ev.description;
-  addCal.options =
-    "'iCal','Google','Outlook.com','Microsoft365','MicrosoftTeams','Apple','Yahoo'";
-  addCal.location = ev.location;
-  addCal.startDate = ev.start.dateTime.toDateString();
-  addCal.endDate = ev.end.dateTime.toDateString();
-  addCal.startTime = ev.start.dateTime.toTimeString();
-  addCal.endTime = ev.end.dateTime.toTimeString();
-  addCal.timeZone = ev.start.timeZone;
-
-  return addCal;
 }
