@@ -8,6 +8,14 @@
 ## Common commands
 
 ```sh
+# Assuming the current working directory is `src`:
+
+# Add new page
+hugo new content/path/to/new/page.md
+
+# Build the website in the `public` folder
+hugo build
+
 # Preview the website with live reload
 hugo server
 
