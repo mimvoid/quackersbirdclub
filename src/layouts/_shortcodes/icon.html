@@ -10,11 +10,12 @@
 */ -}}
 
 {{- $svg := .Get 0 -}}
-{{- $regex := "<svg (.*)?>(.*)</svg>" -}}
-{{- $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` $svg -}}
+{{- $class := .Get 1 -}}
 
-{{- with .Get 1 -}}
-  {{- $replaceWith = printf `<svg class="%s %s" ${1}>${2}</svg>` $svg . -}}
-{{- end -}}
+{{- $regex := "<svg (.*)?>(.*)</svg>" -}}
+{{- $replaceWith := cond $class
+    (printf `<svg class="%s %s" ${1}>${2}</svg>` $svg $class)
+    (printf `<svg class="%s" ${1}>${2}</svg>` $svg)
+-}}
 
 {{- printf "/assets/icons/%s.svg" $svg | readFile | replaceRE $regex $replaceWith | safeHTML -}}

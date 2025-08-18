@@ -1,51 +1,61 @@
 <footer class="footer">
-  <div class="content container wrap">
-    <div class="footer__menu-cta-wrapper">
-      <div class="footer__menu">
-        {{- $withChildren := where .Site.Menus.main ".HasChildren" "eq" true -}}
-        {{- $withoutChildren := complement $withChildren .Site.Menus.main -}}
-        {{/* Render items with children first, each wrapped in its own column */}}
-        {{ range $withChildren }}
-        <div class="column">
-          <p class="top-menu-item">{{ .Name }}</p>
-          <ul>
-            {{ range .Children }}
-            <li class="menu-item">
-              <a href="{{ .URL | relLangURL }}" class="menu-link">{{ .Name }}</a>
-            </li>
-            {{ end }}
-          </ul>
-        </div>
-        {{ end }}
-        {{/* Render all items without children inside a single column div */}}
-        <div class="column">
-          <p class="top-menu-item">&nbsp;</p>
-          <ul>
-            {{ range $withoutChildren }}
-            <li class="menu-item">
-              <a href="{{ .URL | relLangURL }}" class="menu-link">{{ .Name }}</a>
-            </li>
-            {{ end }}
-          </ul>
-        </div>
-      </div>
+<div class="content container wrap">
+  <div class="footer__menu-cta-wrapper">
+    <div class="footer__menu">
+      {{- $withChildren := where .Site.Menus.main ".HasChildren" "eq" true -}}
+      {{- $withoutChildren := complement $withChildren .Site.Menus.main -}}
 
-      {{ with .Site.Params.footer_cta }}
-      <div class="footer__cta">
-        <a href="{{ .link | relLangURL }}" class="button tertiary">{{ .text }}</a>
+      {{/* Render items with children first, each wrapped in its own column */ -}}
+      {{ range $withChildren }}
+      <div class="column">
+        <p class="top-menu-item">{{ .Name }}</p>
+        <ul>
+          {{ range .Children }}
+          <li class="menu-item">
+            <a href="{{ .URL | relLangURL }}" class="menu-link">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
       </div>
-      {{ end }}
+      {{ end -}}
+
+      {{/* Render all items without children inside a single column div */}}
+      <div class="column">
+        <p class="top-menu-item">&nbsp;</p>
+        <ul>
+          {{ range $withoutChildren }}
+          <li class="menu-item">
+            <a href="{{ .URL | relLangURL }}" class="menu-link">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
     </div>
 
-    <div class="footer__logo-social-wrapper">
-      {{ with .Site.Params.logo_on_black }}
-      <a class="logo-link" href="/">
-        <img loading="lazy" class="logo" width="150" height="40" src="{{ . }}" alt="{{ site.Title | safeHTMLAttr }}"></a>
-      {{ end }}
-      {{- partial "footer/social-links" . -}}
+    {{ with .Site.Params.footer_cta }}
+    <div class="footer__cta">
+      <a href="{{ .link | relLangURL }}" class="button tertiary">{{ .text }}</a>
     </div>
-
-    <hr class="footer-hr">
-    <p class="copyright">{{ .Site.Copyright  }}</p>
+    {{ end }}
   </div>
+
+  <div class="footer__logo-social-wrapper">
+    {{ with .Site.Params.logo_on_black }}
+    <a class="logo-link" href="/">
+      <img
+        loading="lazy"
+        class="logo"
+        width="150"
+        height="40"
+        src="{{ . }}"
+        alt="{{ site.Title | safeHTMLAttr }}"
+      />
+    </a>
+    {{ end }}
+    {{- partial "footer/social-links" . -}}
+  </div>
+
+  <hr class="footer-hr" />
+  <p class="copyright">{{ .Site.Copyright  }}</p>
+</div>
 </footer>

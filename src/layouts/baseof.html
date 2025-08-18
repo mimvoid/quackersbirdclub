@@ -16,7 +16,7 @@
   {{- partialCached "header" . -}}
 
   <main id="content" class="wrap" {{ if .IsPage }}data-pagefind-body{{ end }}>
-    {{ if ne .Params.showHeader false }}
+    {{ if not .Params.hideHeader }}
       <header
         {{ $banner := .Resources.Get "banner" }}
         {{ with $banner }}
@@ -27,7 +27,7 @@
         {{ end }}
       >
         {{ if and .IsPage .Section }}
-        {{- partial "breadcrumb.html" . -}}
+          {{- partial "breadcrumb" . -}}
         {{ end }}
         {{- block "title" . }}<h1 class="title">{{ .Title }}</h1>{{- end }}
         {{- if $banner -}}<p class="subtitle">{{ .Summary }}</p>{{- end }}
@@ -37,6 +37,6 @@
       {{- block "main" . }}{{ .Content -}}{{- end }}
     </article>
   </main>
-  {{- partial "footer.html" . -}}
+  {{- partial "footer" . -}}
 </body>
 </html>

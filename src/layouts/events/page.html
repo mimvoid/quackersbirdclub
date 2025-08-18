@@ -4,8 +4,8 @@
 */ -}}
 
 {{ define "head-extra" }}
-{{- $opts := dict "minify" true }}
-{{ with resources.Get "ts/events/index.ts" | js.Build $opts | fingerprint }}
-  <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
-{{ end }}
+  {{- $opts := dict "minify" true }}
+  {{ with resources.Get "ts/events/index.ts" | js.Build $opts | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+  {{ end }}
 {{ end }}

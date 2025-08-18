@@ -9,37 +9,34 @@
 */ -}}
 
 {{ $src := .Get "src" }}
-{{ $width := .Get "width" | replaceRE "[^0-9]" "" }}
-{{ $height := .Get "height" | replaceRE "[^0-9]" "" }}
-{{ $loading := .Get "loading" | default "lazy" }}
+{{ $caption := .Get "caption" }}
 {{ $altAsTitle := partial "utils/parse_bool" (.Get "altAsTitle") }}
-
-{{/* Get the alt attribute if it exists, otherwise extract the file name from the path */}}
-{{ $alt := .Get "alt" | default (path.BaseName $src | replaceRE "[-_]" " " | humanize) }}
 
 {{ $pageAsset := .Page.Resources.Get $src }}
 {{ $asset := $pageAsset | default (resources.Get $src) }}
-{{ $caption := .Get "caption" }}
 
-{{ if $caption }}
+{{ $width := default $asset.Width (.Get "width" | replaceRE "[^0-9]" "") }}
+{{ $height := default $asset.Height (.Get "height" | replaceRE "[^0-9]" "") -}}
+
+{{- if $caption -}}
+{{/* Wrap the image in a figure if there is a caption */}}
 <figure
   {{ with .Get "class" }}class="{{ . }}"{{ end -}}
-  {{ with .Get "style" }}style="{{ safeCSS . }}"{{ end -}}
+  {{ with .Get "style" }}style="{{ safeCSS . }}"{{ end }}
 >
-{{ end -}}
+{{ end }}
 <img
   src="{{ cond (and $asset (not $pageAsset)) $asset.RelPermalink $src }}"
-  {{ with default $width $asset.Width }}width="{{ . }}"{{ end }}
-  {{ with default $height $asset.Height }}height="{{ . }}"{{ end -}}
-  {{- with $alt | safeHTMLAttr }}
-    alt="{{ . }}"
-    {{ if $altAsTitle }}title="{{ . }}"{{ end }}
+  loading="{{ .Get "loading" | default "lazy" }}"
+  {{ with $width }}width="{{ . }}"{{ end }}
+  {{ with $height }}height="{{ . }}"{{ end }}
+  {{ with .Get "alt" | safeHTMLAttr -}}
+    alt="{{ . }}" {{ if $altAsTitle }}title="{{ . }}"{{ end }}
   {{- end -}}
-  loading="{{ $loading }}"
-  {{- if not $caption }}
-    {{ with .Get "class" }}class="{{ . }}"{{ end -}}
-    {{ with .Get "style" }}style="{{ safeCSS . }}"{{ end -}}
-  {{ end -}}
+  {{ if not $caption -}}
+    {{ with .Get "class" }}class="{{ . }}"{{ end }}
+    {{ with .Get "style" }}style="{{ safeCSS . }}"{{ end }}
+  {{- end -}}
 />
 {{ with $caption }}
   <figcaption>{{ markdownify . }}</figcaption>

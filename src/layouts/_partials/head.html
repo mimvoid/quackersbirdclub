@@ -1,5 +1,5 @@
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 {{- partial "head/csp.html" . -}}
 
 <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
@@ -9,9 +9,9 @@
 <meta name="robots" content="noindex, nofollow" />
 {{ end }}
 
-{{- partial "head/css.html" . }}
-{{- partial "head/scripts.html" . }}
-{{- partial "head/twitter-cards.html" . }}
-{{- partial "head/published-time.html" . }}
-{{- partial "head/favicons.html" . }}
-{{- partial "head/sticky-header.html" . }}
+{{- partial "head/css" . }}
+{{- partial "head/scripts" . }}
+{{- partial "head/twitter-cards" . }}
+{{- partial "head/published-time" . }}
+{{- partial "head/favicons" . }}
+{{- partial "head/sticky-header" . }}

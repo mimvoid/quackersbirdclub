@@ -17,7 +17,7 @@
 
 {{/* Shortcode: YouTube Enhanced */}}
 {{ if .HasShortcode "youtube_enhanced" }}
-{{ with resources.Get "js/youtube-lite.js" | minify }}
-<script type="module" src="{{ .RelPermalink }}"></script>
-{{ end }}
+  {{ with resources.Get "js/youtube-lite.js" | minify }}
+    <script type="module" src="{{ .RelPermalink }}"></script>
+  {{ end }}
 {{ end }}
