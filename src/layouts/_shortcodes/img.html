@@ -16,7 +16,7 @@
   {{ with .Get "class" }}class="{{ . }}"{{ end -}}
   {{ with .Get "style" }}style="{{ safeCSS . }}"{{ end -}}
 >
-{{ end }}
+{{ end -}}
 <img
   src="{{ cond (and $asset (not $pageAsset)) $asset.RelPermalink $src }}"
   {{ with default $width $asset.Width }}width="{{ . }}"{{ end }}
