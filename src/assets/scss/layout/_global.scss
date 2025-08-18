@@ -18,6 +18,10 @@ body {
 
   @media (max-width: $mobile) {
     max-width: 100%;
+
+    &.content {
+      padding-inline: 0.5rem;
+    }
   }
 }
 

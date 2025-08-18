@@ -12,6 +12,8 @@ header.with-bg {
   background-attachment: scroll;
   background-repeat: no-repeat;
 
+  box-shadow: inset 0 0 16px 4px var(--shadow);
+
   @media (min-width: $desktop) {
     // Keep text at the left of the banner
     h1 {
@@ -57,7 +59,7 @@ header.with-bg {
   }
 
   p {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     text-wrap: balance;
   }
 
@@ -66,7 +68,12 @@ header.with-bg {
     content: "";
     @include u.overlay;
 
-    background-color: var(--primary-800);
+    background: linear-gradient(
+      to left top,
+      var(--primary-800),
+      75%,
+      hsl(from var(--primary-800) calc(h - 5) calc(s * 1.75) calc(l * 0.6))
+    );
     opacity: 0.75;
   }
 }

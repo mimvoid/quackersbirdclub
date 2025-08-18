@@ -14,16 +14,19 @@ Birding and naturalist club at the University of Pennsylvania
 <!--more-->
 <!-- Above is a divider between the summary (above) and content (below) -->
 
+<div class="introduction">
+<div class="intro-text">
+
 ## Who Are We?
 
-{{< columns count=2 >}}
-{{< column >}}
 We're a chill club passionate about everything birds!
 
 We host birding outings and the occasional craft session. No matter how often you can make it, we'd
 be happy to have you!
-{{< /column >}}
-{{< column >}}
+
+</div>
+<div class="intro-links">
+
 {{< icon "social-telegram" "circle" >}} <a
     href="https://t.me/+5wtWHPQWUflmOWY5"
     title="Quackers Bird Club at Penn on Telegram">Telegram Group Chat</a>
@@ -35,8 +38,9 @@ be happy to have you!
 {{< icon "tabler--mail" "circle" >}} <a data-email="club">quackersbirdclub</a>
 
 {{< button text="Events" link="/events" >}}
-{{< /column >}}
-{{< /columns >}}
+
+</div>
+</div>
 
 <div class="alt-cards">
 {{< cards >}}
