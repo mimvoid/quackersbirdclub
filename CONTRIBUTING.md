@@ -1,5 +1,20 @@
 # Contributing
 
+> [!IMPORTANT]
+> Using AI is allowed, but remember that it is a tool, not a developer.
+> Please make sure all code works by previewing the website, fixing inconsistent styles,
+> and removing redundant functions and comments!
+
+## Common commands
+
+```sh
+# Preview the website with live reload
+hugo server
+
+# Preview the website with access to Netlify serverless functions
+netlify dev -c "hugo server -w" --target-port 1313
+```
+
 ## Guides
 
 - [MDN Web Docs](https://developer.mozilla.org), for HTML, CSS, and JavaScript
