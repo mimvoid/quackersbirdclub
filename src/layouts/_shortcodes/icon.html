@@ -1,3 +1,14 @@
+{{/*
+  Gets an icon from assets/icons and inserts its contents directly into the HTML page.
+  This loads faster than linking an SVG file.
+
+  This shortcode also adds the icon name as a CSS classes, allowing it to be styled
+  specifically.
+
+  Example usage:
+  {{< icon "icon-filename" "css-class" >}}
+*/ -}}
+
 {{- $svg := .Get 0 -}}
 {{- $regex := "<svg (.*)?>(.*)</svg>" -}}
 {{- $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` $svg -}}

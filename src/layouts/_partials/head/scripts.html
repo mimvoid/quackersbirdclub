@@ -1,3 +1,5 @@
+{{/* Builds the TypeScript files into JavaScript and links them. */ -}}
+
 {{- $opts := dict "minify" true }}
 {{- $isProduction := eq hugo.Environment "production" }}
 {{- $scripts := slice "ts/emailConverter.ts" "ts/navScroll.ts" "ts/hamburgerMenu.ts" -}}

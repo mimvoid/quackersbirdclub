@@ -1,3 +1,7 @@
+/**
+ * Toggles CSS classes for the hamburger menu on mobile.
+ */
+
 (() => {
   const hamburgerButton = document.getElementById("hamburger");
   const mainMenu = document.getElementById("main-menu");

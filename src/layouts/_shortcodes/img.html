@@ -1,3 +1,13 @@
+{{/*
+  A modified version of the img shortcode provided by Hugo.
+
+  It adds the image's width and height to the HTML when available, which helps to
+  prevent layout shifts when the image loads in.
+
+  NOTE: The whitespace around the HTML tags are very particular. Make sure everything
+  builds correctly when making any changes!
+*/ -}}
+
 {{ $src := .Get "src" }}
 {{ $width := .Get "width" | replaceRE "[^0-9]" "" }}
 {{ $height := .Get "height" | replaceRE "[^0-9]" "" }}

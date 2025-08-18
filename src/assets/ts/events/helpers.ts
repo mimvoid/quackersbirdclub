@@ -1,3 +1,7 @@
+/**
+ * Helper functions, variables, and types.
+ */
+
 type UserItem = {
   email: string;
   self: boolean;
@@ -32,6 +36,7 @@ export class EventItem {
   eventType: string;
 }
 
+// Array that maps numbers to month names.
 export const month = [
   "Jan",
   "Feb",
@@ -65,6 +70,10 @@ export function mkText(tag: string, textContent: string) {
   return element;
 }
 
+/**
+ * Gets the time from a Date object formatted in AM/PM time.
+ * If the minutes are 0, only includes the hour.
+ */
 export function amPmStr(dateTime: Date) {
   const h = dateTime.getHours();
   const m = dateTime.getMinutes();
@@ -75,6 +84,9 @@ export function amPmStr(dateTime: Date) {
   return h > 12 ? `${h - 12}:${m}pm` : `${h}:${m}am`;
 }
 
+/**
+ * Cleans up location strings to fit the context of a club in the United States.
+ */
 export function trimLoc(loc: string) {
   // Remove ", USA" suffix if it exists
   return loc.endsWith(", USA") ? loc.slice(0, -5) : loc;

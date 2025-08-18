@@ -1,3 +1,4 @@
+{{/* For external links, automatically sets them to open in a new tab. */}}
 <a
   href="{{- .Destination | safeURL -}}"
   {{- with .Title }}title="{{- . -}}"{{ end -}}

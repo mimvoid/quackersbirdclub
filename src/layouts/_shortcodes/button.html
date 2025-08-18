@@ -1,3 +1,8 @@
+{{/*
+  Example usage:
+  {{< button text="foo" link="/page" style="css-class" >}}
+*/ -}}
+
 <a href="{{ .Get "link" }}" class="button{{ with .Get "style" }} {{ . }}{{ end }}">
   {{ .Get "text" }}
 </a>

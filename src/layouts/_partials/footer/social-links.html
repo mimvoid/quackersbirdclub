@@ -1,3 +1,8 @@
+{{/*
+  Lists all social links in the site's Params and their icons.
+  Site Params are in config/_default/params.toml, and icons are in assets/icons.
+*/ -}}
+
 {{- $validLinks := slice -}}
 {{- range $key, $value := .Site.Params.social_links }}
   {{ if not $value }}{{ continue }}{{ end }}
