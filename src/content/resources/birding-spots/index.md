@@ -4,7 +4,7 @@ description: Listing of good places to go birding in Philadelphia
 date: 2025-02-20T11:53:28-05:00
 resources:
     - name: banner
-      src: Michelle-Lin_2025-03-11_3.webp
+      src: Michelle-Lin_20250311.webp
 ---
 
 Philadelphia has many great areas for birding, including some close to Penn!
@@ -82,7 +82,7 @@ may be found by the water, and woodpeckers, song sparrows, ravens, and crows may
 {{< column >}}
 
 {{< img
-    src="Michelle-Lin_2024-04-19.webp"
+    src="Michelle-Lin_20240419.webp"
     alt="A goose standing in Tinicum Marsh at John Heinz, a large body of water with islands of vegetation (Michelle Lin 2024)"
     caption="A goose stands guard in Tinicum Marsh at John Heinz<br>(Photo by Michelle Lin)"
 >}}

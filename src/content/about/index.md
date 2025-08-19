@@ -7,7 +7,7 @@ menus: main
 weight: 10
 resources:
   - name: banner
-    src: Michelle-Lin_2025-03-01_12-00.webp
+    src: Michelle-Lin_20250301_1200.webp
     params:
       style: "background-position: 0% 90%"
 ---

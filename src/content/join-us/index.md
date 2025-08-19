@@ -6,7 +6,7 @@ date: 2025-02-20T11:05:46-05:00
 layout: main
 resources:
     - name: banner
-      src: Michelle-Lin_2025-02-01_12-56.webp
+      src: Michelle-Lin_20250201_1256.webp
 ---
 
 Stay up to date on announcements and chat with fellow birders!
