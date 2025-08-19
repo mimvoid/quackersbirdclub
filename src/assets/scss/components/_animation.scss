@@ -15,9 +15,50 @@
   }
 }
 
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+$spinner-dashoffset: 280;
+@keyframes spinner-dash {
+  0% {
+    stroke-dasharray: 0 $spinner-dashoffset;
+    stroke-dashoffset: 0;
+  }
+  47.5% {
+    stroke-dasharray: 60 $spinner-dashoffset;
+    stroke-dashoffset: -20;
+  }
+  95%,
+  100% {
+    stroke-dasharray: 60 $spinner-dashoffset;
+    stroke-dashoffset: -120;
+  }
+}
+
 // Classes
 @media (prefers-reduced-motion: no-preference) {
   .fade-in-down {
     animation: 0.55s ease-in-out fade-in-down;
+  }
+
+  // Loading animation
+  .spinner {
+    display: block;
+    margin: auto;
+    animation: spinner 2s linear infinite;
+
+    circle {
+      stroke: var(--gray-600);
+      // stroke-dasharray: $spinner-dashoffset;
+      stroke-dashoffset: 0;
+      transform-origin: center;
+      animation: spinner-dash 2s ease-in-out infinite;
+    }
   }
 }

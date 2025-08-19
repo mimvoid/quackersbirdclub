@@ -96,12 +96,13 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem) {
 }
 
 (async () => {
-  try {
-    const eventNode = document.getElementById("events");
-    if (!eventNode) {
-      throw new Error("Couldn't find HTML element with id 'events'.");
-    }
+  const eventNode = document.getElementById("events");
+  if (!eventNode) {
+    console.error("Couldn't find HTML element with id 'events'.");
+    return;
+  }
 
+  try {
     const jsonData = await fetchEventJson();
     const events = processEventJson(jsonData);
 
@@ -137,8 +138,17 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem) {
     }
 
     // Add everything onto the page
-    eventNode.appendChild(fragment);
+    eventNode.replaceChildren(fragment);
   } catch (err) {
+    const simpleError = document.createElement("p");
+    simpleError.textContent = "Failed to fetch event data."
+
+    const details = document.createElement("details");
+    const summary = details.appendChild(document.createElement("summary"));
+    summary.textContent = "Reason";
+    details.appendChild(document.createTextNode(err));
+
+    eventNode.replaceChildren(simpleError, details);
     console.error(err.message);
   }
 })();
