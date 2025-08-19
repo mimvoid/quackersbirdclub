@@ -61,6 +61,13 @@ be the distinguishing features of the bird to help with identification.
 {{< /card >}}
 {{< card >}}
 
+{{< img
+    src="Michelle-Lin_20250627.webp"
+    alt="A northern mockingbird, a gray bird with a light underbelly, dark wings, and a long tail. Its wings have a signature pair of white patches."
+    altAsTitle=true
+    caption="Photo by Michelle Lin"
+>}}
+
 ### Northern mockingbird
 
 *Mimus polyglottos*
@@ -256,6 +263,13 @@ be the distinguishing features of the bird to help with identification.
 {{< cards >}}
 {{< card >}}
 
+{{< img
+    src="Michelle-Lin_20250318.webp"
+    alt="A male house finch with its signature pinkish-red head and breast. The rest of its feathers are streaky brown."
+    altAsTitle=true
+    caption="Photo by Michelle Lin"
+>}}
+
 ### House finch
 
 *Haemorhous mexicanus*
@@ -329,6 +343,13 @@ be the distinguishing features of the bird to help with identification.
 
 {{< /cards >}}
 {{< card >}}
+
+{{< img
+    src="Michelle-Lin_20250530_1732.webp"
+    alt="A mourning dove, with peachy gray-brown feathers spotted with black on its wings. Its bill is black and slender, and its legs are a pale pink."
+    altAsTitle=true
+    caption="Photo by Michelle Lin"
+>}}
 
 ### Mourning dove
 

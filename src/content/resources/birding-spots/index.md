@@ -52,6 +52,14 @@ and birds of prey.
 
 ### Bartram's Garden
 
+{{< img
+    src="Michelle-Lin_20250329.webp"
+    class="float-right"
+    style="width: clamp(10em, 28em, 100%);"
+    alt="Two Canada geese rest on a river dock"
+    caption="Canada geese at the Schuykill River (Photo by Michelle Lin)"
+>}}
+
 {{< icon "tabler--external-link" >}} [Website](https://www.bartramsgarden.org)
 
 {{< icon "tabler--map-pin" >}} 5400 Lindbergh Boulevard
