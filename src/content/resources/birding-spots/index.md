@@ -18,11 +18,11 @@ Within 15 minutes of the Penn campus by SEPTA.
 ### BioPond
 
 {{< img
-    src="Michelle-Lin_2025-03-11_1.webp"
+    src="Michelle-Lin_20250424.webp"
     class="float-right"
-    style="width: clamp(12em, 30em, 100%);"
-    alt="A group of turtles bask on a rock island in the middle of the BioPond"
-    caption="Turtles bask in the middle of the BioPond on a warm afternoon<br>(Photo by Michelle Lin)"
+    style="width: clamp(12em, 28em, 100%);"
+    alt="A female mallard preening next to turtles on a rock island in the middle of the BioPond"
+    caption="Lady mallard preens her feathers next to basking turtles<br>(Photo by Michelle Lin)"
 >}}
 
 {{< icon "tabler--external-link" >}} [Website](https://kaskeypark.bio.upenn.edu)

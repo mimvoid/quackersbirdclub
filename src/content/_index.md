@@ -46,9 +46,9 @@ be happy to have you!
 {{< cards >}}
 {{< card >}}
 {{< img
-    src="/Michelle-Lin_2024-08-30_3.webp"
+    src="Michelle-Lin_20240830.webp"
     alt="A young American Robin with its characteristic freckled plumage and orange belly (Michelle Lin 2024)"
-    style="--focus-x: 75%"
+    style="--focus-x: 80%"
 >}}
 
 ## Birds {.h3}
@@ -62,8 +62,9 @@ and their unique characteristics and behaviors!
 {{< card >}}
 
 {{< img
-    src="Michelle-Lin_2025-03-11_6.webp"
-    alt="A tufted titmouse in the side looks back at the camera (Michelle Lin 2025)"
+    src="Michelle-Lin_20250505.webp"
+    alt="A gray catbird sits on a railing overlooking the BioPond (Michelle Lin 2025)"
+    style="--focus-x: 38%"
 >}}
 
 ## Outings {.h3}
@@ -77,9 +78,9 @@ John Heinz and more.
 {{< card >}}
 
 {{< img
-    src="Michelle-Lin_2025-02-25_1.webp"
-    alt="A flock of house sparrows gathered along a bench (Michelle Lin 2025)"
-    style="--focus-x: 38%"
+    src="Michelle-Lin_20250320.webp"
+    alt="An American robin sits with two house sparrows on a wooden bench (Michelle Lin 2025)"
+    style="--focus-x: 65%"
 >}}
 
 ## Community {.h3}

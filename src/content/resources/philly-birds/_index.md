@@ -524,10 +524,10 @@ be the distinguishing features of the bird to help with identification.
 {{< card >}}
 
 {{< img
-    src="Michelle-Lin_2025-01-10.webp"
+    src="Michelle-Lin_20250808_1859.webp"
     alt="A red-tailed hawk is usually reddish-brown with speckled streaks of dark brown on a light belly. It has a white throat and a mostly unbanded tail."
     altAsTitle=true
-    style="--focus-x: 20%"
+    style="--focus-y: 18%"
     caption="Photo by Michelle Lin"
 >}}
 
