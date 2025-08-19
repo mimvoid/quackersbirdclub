@@ -45,7 +45,7 @@ header.with-bg {
   }
 
   h1 {
-    font-size: 5.5rem;
+    font-size: 5.25rem;
 
     @media (max-width: $mobile) {
       font-size: 4rem;
@@ -68,6 +68,7 @@ header.with-bg {
     content: "";
     @include u.overlay;
 
+    filter: contrast(108%);
     background: linear-gradient(
       to left top,
       var(--primary-800),

@@ -6,10 +6,16 @@ resources:
     - name: banner
       src: Victoria-Sindlinger_20250329.jpg
       params:
-        style: "background-position: 50% 40%"
+        style: "background-position: 55% 20%"
 ---
 
-Birding and naturalist club at the University of Pennsylvania
+Join trips, identify birds, and have fun with the birding and naturalist club at the University
+of Pennsylvania.
+
+<div class="cta-buttons">
+{{< button text="Become a Member" link="join-us" style="tertiary" >}}
+{{< button text="Upcoming Events" link="events" style="secondary" >}}
+</div>
 
 <!--more-->
 <!-- Above is a divider between the summary (above) and content (below) -->
@@ -36,8 +42,6 @@ be happy to have you!
     title="Quackers Bird Club at Penn on Instagram">@upennquackers</a>
 
 {{< icon "tabler--mail" "circle" >}} <a data-email="club">quackersbirdclub</a>
-
-{{< button text="Events" link="/events" >}}
 
 </div>
 </div>
