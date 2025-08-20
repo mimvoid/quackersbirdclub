@@ -1,23 +1,46 @@
 @use "../abstracts/utils" as u;
+@use "../abstracts/vars" as *;
 
 .timeline {
+  --bullet-offset: -2.75em;
+  --bullet-size: 1.1em;
   list-style-type: none;
 
+  @media (max-width: $mobile) {
+    --bullet-offset: -1.6em;
+    --bullet-size: 0.75em;
+    padding-left: 0;
+
+    .card.card {
+      padding-inline: 1.5em;
+      left: 0;
+
+      &::before {
+        display: none;
+      }
+      &::after {
+        display: none;
+      }
+    }
+  }
+
   .card {
+    margin-block: 0.5em;
     padding-inline: 2.25em;
     position: relative;
+    left: 1em;
     $pseudo-top: 4em; // Distance from the top to place the pseudo elements
 
     // Custom list item markers
     &::before {
       content: "";
       position: absolute;
-      left: -2.5em;
+      left: var(--bullet-offset);
       top: $pseudo-top;
       z-index: 2;
 
-      width: 1.25em;
-      height: 1.25em;
+      width: var(--bullet-size);
+      height: var(--bullet-size);
 
       border-radius: 100vw;
       background-color: var(--primary-800);
@@ -27,12 +50,12 @@
     &::after {
       content: "";
       position: absolute;
-      left: -2.5em + 0.58em;
-      top: 0;
+      left: calc(var(--bullet-offset) + (var(--bullet-size) / 2));
+      top: -0.5em;
       z-index: 1;
 
-      width: 2px;
-      height: 120%;
+      width: 1.5px;
+      height: 110%;
 
       background-color: var(--gray-400);
     }
@@ -60,7 +83,7 @@
       margin-right: 1.5em;
 
       color: var(--primary-700);
-      font-family: var(--condensed-font-family);
+      font-family: var(--heading-font);
       font-size: 1em;
       line-height: 1.1;
       text-align: center;
@@ -81,6 +104,7 @@
       }
 
       .h3 {
+        text-wrap: balance;
         margin-block: 0;
       }
     }

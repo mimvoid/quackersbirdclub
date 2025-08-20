@@ -4,7 +4,14 @@ description: Upcoming and past events for Quackers Bird Club at Penn
 date: 2025-02-20T11:53:19-05:00
 menus: main
 weight: 40
+resources:
+  - name: banner
+    src: Michelle-Lin_20250225_1.webp
+    params:
+      style: "background-position: 20% 30%"
 ---
+
+<!--more-->
 
 <div id="events">
 <svg class="spinner" width="65" height="65" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
