@@ -34,19 +34,29 @@ async function fetchEventJson(): Promise<any[]> {
  * @returns An array of typed event item objects.
  */
 function processEventJson(jsonData: any[]) {
-  const events = jsonData.map((rawEvent) => {
+  const upcoming: EventItem[] = [];
+  const past: EventItem[] = [];
+
+  const now = Date.now();
+
+  for (const rawEvent of jsonData) {
     const evItem: EventItem = Object.assign(new EventItem(), rawEvent);
 
     // Make sure the dates get parsed
     evItem.start.dateTime = new Date(rawEvent.start.dateTime);
     evItem.end.dateTime = new Date(rawEvent.end.dateTime);
 
-    return evItem;
-  });
+    if (evItem.start.dateTime.getTime() - now >= 0) {
+      upcoming.push(evItem);
+    } else {
+      past.push(evItem);
+    }
+  }
 
-  return events.sort(
-    (a, b) => b.start.dateTime.getTime() - a.start.dateTime.getTime(),
-  );
+  const sortDates = (a: EventItem, b: EventItem) =>
+    b.start.dateTime.getTime() - a.start.dateTime.getTime();
+
+  return [upcoming.sort(sortDates), past.sort(sortDates)];
 }
 
 /**
@@ -77,7 +87,8 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem) {
   );
 
   // Summary
-  text.appendChild(mkText("h3", ev.summary));
+  const summary = text.appendChild(mkText("h4", ev.summary));
+  summary.classList.add("h3");
 
   // Time
   const timeText = text.appendChild(document.createElement("p"));
@@ -95,6 +106,32 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem) {
   }
 }
 
+function makeTimeline(events: EventItem[], fragment: DocumentFragment) {
+  // Store divs for each year for easy access
+  const timelines = new Map<number, HTMLElement>();
+
+  for (let i = 0, len = events.length; i < len; i++) {
+    const ev = events[i];
+    const year = ev.start.dateTime.getFullYear();
+    let timeline = timelines.get(year);
+
+    if (timeline == undefined) {
+      // Set up a new year timeine
+      const yearDiv = fragment.appendChild(document.createElement("div"));
+      yearDiv.appendChild(mkText("h3", String(year)));
+
+      timeline = yearDiv.appendChild(document.createElement("ul"));
+      timeline.classList.add("timeline");
+      timeline.id = `timeline-${year}`;
+
+      // Save it in the dictionary
+      timelines.set(year, timeline);
+    }
+
+    makeEventCard(timeline, ev);
+  }
+}
+
 (async () => {
   const eventNode = document.getElementById("events");
   if (!eventNode) {
@@ -104,37 +141,22 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem) {
 
   try {
     const jsonData = await fetchEventJson();
-    const events = processEventJson(jsonData);
+    const [upcoming, past] = processEventJson(jsonData);
 
     // A container to create new elements without manipulating the DOM.
     // This lets us update the page at the very end, requiring only a single reflow.
     const fragment = document.createDocumentFragment();
 
-    // Store divs for each year for easy access
-    const timelines = new Map<number, HTMLElement>();
+    if (upcoming.length > 0) {
+      const heading = fragment.appendChild(document.createElement("h2"));
+      heading.textContent = "Upcoming";
+      makeTimeline(upcoming, fragment);
+    }
 
-    for (let i = 0, len = events.length; i < len; i++) {
-      const ev = events[i];
-      const year = ev.start.dateTime.getFullYear();
-      let timeline = timelines.get(year);
-
-      if (timeline == undefined) {
-        // Set up a new year timeine
-        const yearDiv = fragment.appendChild(document.createElement("div"));
-        yearDiv.appendChild(mkText("h2", String(year)));
-
-        timeline = yearDiv.appendChild(
-          mkElement("ul", (self) => {
-            self.classList.add("timeline");
-            self.id = `timeline-${year}`;
-          }),
-        );
-
-        // Save it in the dictionary
-        timelines.set(year, timeline);
-      }
-
-      makeEventCard(timeline, ev);
+    if (past.length > 0) {
+      const heading = fragment.appendChild(document.createElement("h2"));
+      heading.textContent = "Past Events";
+      makeTimeline(past, fragment);
     }
 
     // Add everything onto the page
