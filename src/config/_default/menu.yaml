@@ -10,3 +10,7 @@ main:
   name: "Philly Birds"
   url: "/resources/philly-birds"
   parent: "resources"
+- identifier: "tools"
+  name: "Birding Tools"
+  url: "/resources/tools"
+  parent: "resources"
