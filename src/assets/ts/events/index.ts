@@ -1,11 +1,9 @@
 import {
   EventItem,
-  mkElement,
   mkText,
   month,
   amPmStr,
   trimLoc,
-  mkTime,
 } from "./helpers";
 import { tablerClock, tablerMapPin } from "./icons";
 
@@ -66,25 +64,20 @@ function processEventJson(jsonData: any[]) {
  * @param ev The event data.
  */
 function makeEventCard(timeline: HTMLElement, ev: EventItem) {
-  const card = timeline.appendChild(
-    mkElement("li", (self) => self.classList.add("card")),
-  );
+  const card = timeline.appendChild(document.createElement("li"));
+  card.classList.add("card");
 
   // -- Date section
   const date = card.appendChild(document.createElement("div"));
-  date.appendChild(
-    mkTime((self) => {
-      self.dateTime = ev.start.dateTime.toISOString();
-      self.innerHTML =
-        month[ev.start.dateTime.getMonth()] +
-        ` <span class="day">${ev.start.dateTime.getDate()}</span>`;
-    }),
-  );
+  const dt = date.appendChild(document.createElement("time"));
+  dt.dateTime = ev.start.dateTime.toISOString();
+  dt.innerHTML =
+    month[ev.start.dateTime.getMonth()] +
+    ` <span class="day">${ev.start.dateTime.getDate()}</span>`;
 
   // -- Text section
-  const text = card.appendChild(
-    mkElement("div", (self) => self.classList.add("timeline-text")),
-  );
+  const text = card.appendChild(document.createElement("div"));
+  text.classList.add("timeline-text");
 
   // Summary
   const summary = text.appendChild(mkText("h4", ev.summary));
@@ -163,7 +156,7 @@ function makeTimeline(events: EventItem[], fragment: DocumentFragment) {
     eventNode.replaceChildren(fragment);
   } catch (err) {
     const simpleError = document.createElement("p");
-    simpleError.textContent = "Failed to fetch event data."
+    simpleError.textContent = "Failed to fetch event data.";
 
     const details = document.createElement("details");
     const summary = details.appendChild(document.createElement("summary"));

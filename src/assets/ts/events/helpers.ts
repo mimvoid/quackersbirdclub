@@ -52,18 +52,6 @@ export const month = [
   "Dec",
 ];
 
-export function mkElement(tag: string, setup: (self: HTMLElement) => void) {
-  const element = document.createElement(tag);
-  setup(element);
-  return element;
-}
-
-export function mkTime(setup: (self: HTMLTimeElement) => void) {
-  const element = document.createElement("time");
-  setup(element);
-  return element;
-}
-
 export function mkText(tag: string, textContent: string) {
   const element = document.createElement(tag);
   element.textContent = textContent;
