@@ -114,7 +114,10 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem) {
   }
 
   if (ev.description) {
-    text.appendChild(mkText("p", ev.description));
+    for (const line of ev.description.split("\n")) {
+      const trimmedLine = line.trim();
+      if (trimmedLine) text.appendChild(mkText("p", trimmedLine));
+    }
   }
 }
 
