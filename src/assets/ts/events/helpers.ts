@@ -5,11 +5,11 @@
 type UserItem = {
   email: string;
   self: boolean;
-}
+};
 type DateItem = {
   dateTime: Date;
   timeZone: string;
-}
+};
 
 // The basic structure of an event from the Google Calendar API.
 export class EventItem {

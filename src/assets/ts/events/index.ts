@@ -1,10 +1,4 @@
-import {
-  EventItem,
-  mkText,
-  month,
-  amPmStr,
-  trimLoc,
-} from "./helpers";
+import { EventItem, mkText, month, amPmStr, trimLoc } from "./helpers";
 import { tablerCalendarEvent, tablerClock, tablerMapPin } from "./icons";
 
 /**

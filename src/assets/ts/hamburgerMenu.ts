@@ -21,7 +21,7 @@
       hamburgerButton.classList.add("is-active");
       mainMenu.classList.add("is-active"); // Open main menu
     }
-  })
+  });
 
   for (let i = 0, len = subMenus.length; i < len; i++) {
     const topMenuItem = subMenus.item(i).parentElement;
@@ -31,6 +31,6 @@
       } else {
         topMenuItem.classList.add("is-open");
       }
-    })
+    });
   }
-})()
+})();
