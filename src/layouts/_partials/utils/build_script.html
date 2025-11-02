@@ -1,0 +1,9 @@
+{{/* Takes in a path relative to the assets folder and processes it into a script. */ -}}
+
+{{- $isProduction := hugo.IsProduction -}}
+{{- $opts := dict "minify" $isProduction -}}
+
+{{- $js := resources.Get . | js.Build $opts -}}
+{{- with $js | cond $isProduction (fingerprint $js) -}}
+<script src="{{ .RelPermalink }}" {{ if $isProduction }}integrity="{{ .Data.Integrity }}"{{ end }} defer ></script>
+{{- end -}}

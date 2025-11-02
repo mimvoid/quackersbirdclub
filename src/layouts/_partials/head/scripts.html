@@ -1,23 +1,12 @@
 {{/* Builds the TypeScript files into JavaScript and links them. */ -}}
 
-{{- $opts := dict "minify" true }}
-{{- $isProduction := eq hugo.Environment "production" }}
 {{- $scripts := slice "ts/emailConverter.ts" "ts/navScroll.ts" "ts/hamburgerMenu.ts" -}}
 
-{{ range $scripts }}
-  {{ $resource := resources.Get . | js.Build $opts }}
-  {{ if $isProduction }}
-    {{ with $resource | fingerprint }}
-      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
-    {{ end }}
-  {{ else if $resource }}
-    <script src="{{ $resource.RelPermalink }}" defer></script>
-  {{ end }}
-{{ end }}
+{{- /* Shortcode: YouTube Enhanced (from the Dot-Org theme, may or may not be useful in the future) */ -}}
+{{- if .HasShortcode "youtube_enhanced" -}}
+  {{- $scripts = append "js/youtube-lite.js" $scripts -}}
+{{- end -}}
 
-{{/* Shortcode: YouTube Enhanced */}}
-{{ if .HasShortcode "youtube_enhanced" }}
-  {{ with resources.Get "js/youtube-lite.js" | minify }}
-    <script type="module" src="{{ .RelPermalink }}"></script>
-  {{ end }}
+{{- range $scripts }}
+  {{ partial "utils/build_script" . }}
 {{ end }}

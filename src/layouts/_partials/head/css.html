@@ -1,6 +1,6 @@
 {{/* Builds the Sass files into CSS and links them. */ -}}
 
-{{- $isProduction := eq hugo.Environment "production" }}
+{{- $isProduction := hugo.IsProduction }}
 {{- $opts := dict
     "transpiler" "dartsass"
     "outputStyle" (cond $isProduction "compressed" "nested")
@@ -13,7 +13,13 @@
 {{ end -}}
 
 {{- range $sources }}
-  {{ with resources.Get . | toCSS $opts | resources.Fingerprint "sha256" }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" media="all">
+  {{ $css := resources.Get . | toCSS $opts }}
+  {{ with $css | cond $isProduction (fingerprint $css) }}
+    <link
+      rel="stylesheet"
+      href="{{ .RelPermalink }}"
+      {{ if $isProduction }} integrity="{{ .Data.Integrity }}"{{ end }}
+      media="all"
+    >
   {{ end }}
 {{ end }}
