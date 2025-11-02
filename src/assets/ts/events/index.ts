@@ -24,6 +24,21 @@ async function fetchEventJson(): Promise<any[]> {
   return res.json();
 }
 
+function processDate(dateObj: any) {
+  if (dateObj.dateTime instanceof Date) {
+    return; // Nothing to do
+  }
+
+  if (dateObj.dateTime !== undefined) {
+    // Try to parse the date
+    dateObj.dateTime = new Date(dateObj.dateTime);
+  } else if (dateObj.date !== undefined) {
+    dateObj["dateTime"] = new Date(dateObj.date);
+  } else {
+    throw new Error("Unable to parse event date: " + JSON.stringify(dateObj));
+  }
+}
+
 /**
  * Creates an array of EventItems from raw JSON data, and sorts
  * them in ascending order by start date.
@@ -38,11 +53,15 @@ function processEventJson(jsonData: any[]) {
   const now = Date.now();
 
   for (const rawEvent of jsonData) {
-    const evItem: EventItem = Object.assign(new EventItem(), rawEvent);
+    try {
+      processDate(rawEvent.start);
+      processDate(rawEvent.end);
+    } catch (e) {
+      console.error("Skipping event item:", e);
+      continue;
+    }
 
-    // Make sure the dates get parsed
-    evItem.start.dateTime = new Date(rawEvent.start.dateTime);
-    evItem.end.dateTime = new Date(rawEvent.end.dateTime);
+    const evItem: EventItem = Object.assign(new EventItem(), rawEvent);
 
     if (evItem.start.dateTime.getTime() - now >= 0) {
       upcoming.push(evItem);
