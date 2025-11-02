@@ -30,11 +30,13 @@
           {{- partial "breadcrumb" . -}}
         {{ end }}
         {{- block "title" . }}<h1 class="title">{{ .Title }}</h1>{{- end }}
-        {{- if $banner -}}<p class="subtitle">{{ .Summary }}</p>{{- end }}
+        {{- if $banner }}{{ with .Summary }}<div class="subtitle">{{ . }}</div>{{ end }}{{ end }}
       </header>
     {{ end }}
     <article class="content container">
-      {{- block "main" . }}{{ .Content -}}{{- end }}
+      {{- block "main" . }}
+        {{ cond (and (.Resources.Get "banner") .Summary) .ContentWithoutSummary .Content -}}
+      {{- end }}
     </article>
   </main>
   {{- partial "footer" . -}}
