@@ -11,6 +11,14 @@ resources:
       style: "background-position: 20% 30%"
 ---
 
+<div class="cta-buttons">
+{{< button
+  text="View Google Calendar"
+  link="https://calendar.google.com/calendar/embed?src=quackersbirdclub%40gmail.com&ctz=America%2FNew_York"
+  style="secondary"
+>}}
+</div>
+
 <!--more-->
 
 <div id="events">

@@ -5,7 +5,7 @@ import {
   amPmStr,
   trimLoc,
 } from "./helpers";
-import { tablerClock, tablerMapPin } from "./icons";
+import { tablerCalendarEvent, tablerClock, tablerMapPin } from "./icons";
 
 /**
  * Since Google Calendar requires an API key, we ask Netlify to fetch
@@ -118,6 +118,14 @@ function makeEventCard(timeline: HTMLElement, ev: EventItem) {
       const trimmedLine = line.trim();
       if (trimmedLine) text.appendChild(mkText("p", trimmedLine));
     }
+  }
+
+  if (ev.htmlLink) {
+    const calendarLink = text.appendChild(document.createElement("a"));
+    calendarLink.classList.add("button", "tertiary", "add-to-calendar");
+    calendarLink.href = ev.htmlLink;
+    calendarLink.title = "Open event in Google Calendar"; // tooltip
+    calendarLink.innerHTML += tablerCalendarEvent;
   }
 }
 

@@ -35,45 +35,6 @@ header.with-bg {
     margin-block-end: 0.25em;
     line-height: 95%;
   }
-
-  .cta-buttons {
-    position: relative; // appear above the overlay
-    padding-block-start: 0.5em;
-
-    .button {
-      $border-width: 2px;
-
-      &:first-child {
-        margin-right: 0.5em;
-        margin-bottom: 0;
-      }
-
-      &.tertiary {
-        --_accent: var(--tertiary-500);
-
-        background-color: var(--_accent);
-        border: $border-width solid var(--_accent);
-
-        &:focus,
-        &:hover,
-        &:active {
-          --_accent: var(--tertiary-400);
-        }
-      }
-      &.secondary {
-        background-color: transparent;
-        border: $border-width solid var(--primary-500);
-
-        &:focus,
-        &:hover {
-          background-color: rgb(from var(--white) r g b / 0.1);
-        }
-        &:active {
-          background-color: var(--primary-500);
-        }
-      }
-    }
-  }
 }
 
 .introduction {
